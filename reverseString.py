@@ -1,3 +1,4 @@
+"""
 def reverse(s):
     s = list(s)
 
@@ -10,3 +11,20 @@ def reverse(s):
     return s 
 s = "fernando"
 print(reverse(s))
+
+"""
+def reverse(s):
+
+    stack = []
+    res = []
+    for i in s:
+        stack.append(i)
+    while stack:
+        res.append(stack.pop())
+    res = ''.join(res)
+    return res
+
+s = "fernando"
+print(reverse(s))
+
+ 

@@ -22,7 +22,7 @@ def searchArray(arr, target):
             l += 1
     return False
 
-arr = [-2,-2,-2, -1, 1, 2, 8, 10]
-print(searchArray(arr, -5))
+arr = [-2, -1, 1, 2, 8, 10]
+print(searchArray(arr, 1))
 
 

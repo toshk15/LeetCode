@@ -3,7 +3,7 @@ class Node:
         self.val = val
         self.next = None
 
-
+"""
 def isPalindrome(head):
     fast, slow = head, head
 
@@ -32,14 +32,37 @@ def printLinkList(head):
     while curr:
         print(curr.val)
         curr = curr.next
+"""
+
+def isPalindrome(head):
+
+    s, f = head, head
+    stack = []
+
+    while f and f.next:
+        stack.append(s.val)
+        s = s.next
+        f = f.next.next
+
+    if f != None:
+        s = s.next
+
+
+    while s:
+        x = stack.pop()
+        if s.val != x:
+            return False
+        else:
+            s = s.next
+    return True
 
 head = Node(1)
 head.next = Node(2)
-head.next.next = Node(3)
-head.next.next.next = Node(4)
-head.next.next.next.next = Node(3)
-head.next.next.next.next.next = Node(2)
-head.next.next.next.next.next.next = Node(1)
+head.next.next = Node(1)
+#head.next.next.next = Node(4)
+#head.next.next.next.next = Node(3)
+#head.next.next.next.next.next = Node(2)
+#head.next.next.next.next.next.next = Node(1)
 
 print(isPalindrome(head))
 

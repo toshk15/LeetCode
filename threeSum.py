@@ -4,6 +4,7 @@ def threeSum(nums):
     nums.sort()
 
     for i, j in enumerate(nums):
+        print(i, j)
 
         if j > 0:
             break

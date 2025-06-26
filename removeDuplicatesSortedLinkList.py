@@ -3,8 +3,8 @@ class Node:
         self.val = val
         self.next = None
 
-    
-def delete(head):
+""" 
+def deleteDuplicates(head):
 
     if head == None:
         return head
@@ -13,18 +13,31 @@ def delete(head):
             return head
         
     else:
-        re = {}
         curr = head
-        prev = head
-
         while curr:
-            if curr.val in re:
-                prev = prev.next.next
-            else:
-                re[curr.val] = True
-                prev = curr
+            while curr.next and curr.next.val == curr.val:
+                curr.next = curr.next.next
             curr = curr.next
         return head
+"""   
+
+def deleteDuplicates(head):
+    if head == None:
+        return head
+    elif head != None and head.next == None:
+        return head
+    else:
+        c = {}
+        prev = head
+        curr = head
+        while curr != None:
+            if curr.val in c:
+                prev.next = prev.next.next
+            else:
+                c[curr.val] = True
+                prev = curr
+            curr = curr.next
+        return head    
     
     
 def printLinkList(head):
@@ -41,8 +54,8 @@ head.next.next = Node(3)
 head.next.next.next = Node(3)
 head.next.next.next.next = Node(4)
 
-head = delete(head)
-printLinkList(head)
+head1 = deleteDuplicates(head)
+printLinkList(head1)
 
 
 

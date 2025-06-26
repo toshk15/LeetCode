@@ -1,3 +1,4 @@
+"""
 def twoSum(arr, target):
    
     l, r = 0, len(arr) - 1
@@ -15,7 +16,24 @@ def twoSum(arr, target):
             l += 1
             r -= 1
     return res
+"""
+
+
+def twoSum(arr, target):
+
+    count = {}
+
+    for i, num in enumerate(arr):
+        res = target - num
+
+        if res in count:
+            return [count[res] , i]
+
+        count[num] = i
+            
+
 
 arr = [0, 2, 3, 4, 8]
 k = 7
 print(twoSum(arr, k))
+

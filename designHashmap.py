@@ -83,10 +83,7 @@ class Hashmap:
         while curr.next and curr.next.key != key:
             curr = curr.next
         if curr and curr.next:
-            curr.next = curr.next.next
-
-
-    
+            curr.next = curr.next.next    
 
         
     

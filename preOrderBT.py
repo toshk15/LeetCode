@@ -11,7 +11,7 @@ class Tree:
             pre = []
             stack = []
             stack.append(root)
-            while stack != []:
+            while stack:
                 node = stack.pop()
                 pre.append(node.val)
                 if node.right:

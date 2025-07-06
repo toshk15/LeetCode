@@ -5,21 +5,23 @@ class Tree:
         self.left = None
 
     def inOrder(self,root):
-        if root == None:
+
+        res = []
+        stack = []
+        node = root
+
+        if node == None:
             return []
-        else:
-            re = []
-            stack = []
-            node = root
-            while stack or node:
-                if node:
-                    stack.append(node)
-                    node = node.left
-                else:
-                    node = stack.pop()
-                    re.append(node.val)
-                    node = node.right
-            return re
+             
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                res.append(node.val)
+                node = node.right
+        return res
         
 node = Tree(1)
 node.left = Tree(2)

@@ -13,5 +13,5 @@ def isValidPare(s):
     
     return True if not stack else False
 
-s = "}{()"
+s = "{}(())"
 print(isValidPare(s))

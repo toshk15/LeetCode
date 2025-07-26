@@ -10,6 +10,8 @@ class Tree:
         stack = []
         node = root
 
+
+
         if node == None:
             return []
              

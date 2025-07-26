@@ -12,6 +12,6 @@ def kadanes(arr):
             maxSub = prevSum
     return maxSub
 
-arr = [3,-7,10,-2,-1,7,-11,-5,9,3]
+arr = [3,-7,10, 2,-2]
 
 print(kadanes(arr))

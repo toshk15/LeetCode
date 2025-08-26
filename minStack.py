@@ -19,8 +19,9 @@ class minStack:
         return self.minStack[-1]
     
 s = minStack()
-s.push(-2)
+s.push(5)
 s.push(-1)
 s.push(0)
 s.push(1)
+s.push(-2)
 print(s.getMin())

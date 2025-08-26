@@ -5,7 +5,8 @@ def removeElement(nums, val):
         if nums[i] != val:
             nums[k] = nums[i]
             k += 1
-    return k
+        i+=1
+    return nums
 """
 def removeElement(nums, val):
     n = len(nums)

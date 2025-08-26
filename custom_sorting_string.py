@@ -15,6 +15,6 @@ def customSorting(order, s):
 
 
 order = "abc"
-s = "abcdabc"
+s = "abcdabcGG"
 print(customSorting(order, s))
 

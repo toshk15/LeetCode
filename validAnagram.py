@@ -1,5 +1,5 @@
 
-"""
+
 def isAnagram(s, t):
     if len(s) != len(t):
         return False
@@ -16,7 +16,7 @@ def isAnagram(s, t):
     return True
 
 s = "abcdefg"
-t = "bbgdecf"
+t = "bagdecf"
 
 print(isAnagram(s,t))
 
@@ -26,6 +26,7 @@ def isAnagram(s, t):
     return sorted(s) == sorted(t)
 
 s = "abcdefg"
-t = "bbgdecf"
+t = "bagdecf"
 
 print(isAnagram(s,t))
+"""

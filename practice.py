@@ -14,7 +14,7 @@ def sumTwo(arr, target):
 arr = [0, 2, 3, 4, 8]
 print(sumTwo(arr, 7))
 
-"""
+
 def repeating(s):
 
     c = {}
@@ -33,4 +33,24 @@ def repeating(s):
 
 s = "aabcc"
 print(repeating(s))
- 
+
+
+def product(nums):
+
+    ans = [1] * len(nums)
+    left = 1
+
+    for i in range(len(nums)):
+        ans[i] = left
+        left *= nums[i]
+
+    right = 1
+    for i in range(len(nums)-1, -1, -1):
+        ans[i] *= right
+        right *= nums[i]
+    return ans
+
+nums=[1,2,3,4]
+print(product(nums))
+"""
+

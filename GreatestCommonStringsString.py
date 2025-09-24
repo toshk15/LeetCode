@@ -34,6 +34,6 @@ def greatesCommonDivisorStrings(s1, s2):
 #s2 = "ABAB"
 
 s1 = "ABCABC"
-s2 = "ABC"
+s2 = "ABCR"
 
 print(greatesCommonDivisorStrings(s1,s2))

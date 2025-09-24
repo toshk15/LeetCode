@@ -16,7 +16,7 @@ def twoSum(arr, target):
             l += 1
             r -= 1
     return res
-"""
+
 
 
 def twoSum(arr, target):
@@ -30,6 +30,17 @@ def twoSum(arr, target):
             return [count[res] , i]
 
         count[num] = i
+"""
+def twoSum(nums, target):
+     for i in range(len(nums)):
+        res = 0
+        j=i+1
+        while j <= len(nums)-1:
+            res = nums[i]+nums[j]              
+
+            if target == res:
+                return [i,j]
+            j+=1
             
 
 

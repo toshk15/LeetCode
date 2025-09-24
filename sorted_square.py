@@ -1,18 +1,16 @@
 def sortedSquare(nums):
-    n = len(nums)
-    res=[0]*n
-    l,r = 0, n-1
+    l, r = 0, len(nums)-1
+    result = [None] *(len(nums))
 
     while l <= r:
         left, right = abs(nums[l]), abs(nums[r])
-
         if left > right:
-            res[r-l] = left*left
+            result[r-l] = left * left
             l+=1
         else:
-            res[r-l] = right*right
+            result[r-l] = right * right
             r-=1
-    return res
+    return result
 
 nums=[-3, -2, -1, 3, 9]
 print(sortedSquare(nums))

@@ -9,5 +9,5 @@ def partitionString(s):
         string_set.add(c)
     return res
 
-s = "abcab"
+s = "abcabc"
 print(partitionString(s))

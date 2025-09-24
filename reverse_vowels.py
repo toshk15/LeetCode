@@ -1,5 +1,5 @@
 def reverse_vowels(s):
-    vowels = {"a":True, "e": True, "i": True, "o": True, "u":True, "A", True, "E":True, "I":True, "O": True, "U":True }
+    vowels = {"a":True, "e": True, "i": True, "o": True, "u":True, "A":True, "E":True, "I":True, "O": True, "U":True }
 
     if s == None or s == "" or len(s)==1:
         return s

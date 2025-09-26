@@ -10,6 +10,6 @@ def longesCommonSub(str1, str2):
                 dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
     return dp[0][0]
 
-str1 = "aeg"
-str2 = "abdeg"
+str1 = "ertsad"
+str2 = "sadhjyh"
 print(longesCommonSub(str1, str2))

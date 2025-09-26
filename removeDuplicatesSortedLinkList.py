@@ -21,6 +21,27 @@ def deleteDuplicates(head):
         return head
 """   
 
+"""
+def deleteDuplicates(head):
+
+    if not head:
+        return None
+    ptr1 = head
+    ptr2 = head.next  
+
+    while ptr2:            
+        if ptr1.val == ptr2.val:
+            if not ptr2.next:
+                ptr1.next = None
+            ptr2 = ptr2.next
+        else:
+            ptr1.next = ptr2
+            ptr1 = ptr2
+            ptr2 = ptr2.next
+    return head
+
+"""
+
 def deleteDuplicates(head):
     if head == None:
         return head

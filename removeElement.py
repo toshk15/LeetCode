@@ -1,4 +1,4 @@
-
+"""
 def removeElement(nums, val):
     k = 0
     for i in range(len(nums)):
@@ -19,6 +19,6 @@ def removeElement(nums, val):
         else:
             i += 1
     return n
-"""       
+      
 nums = [1,3,4,4,5,6]
 print(removeElement(nums, 4))

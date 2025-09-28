@@ -40,7 +40,7 @@ needle = "aabaaac"
 
 print(strStr(haystack, needle))
 
-"""
+
 def removeDuplicates(nums):
     k = 0
     for i in range(1, len(nums)):
@@ -53,3 +53,31 @@ def removeDuplicates(nums):
     return k
 nums=[1,1,2]
 print(removeDuplicates(nums))
+"""
+
+import heapq
+
+class CustomPriorityQueue:
+   def __init__(self):
+       self.heap = []
+
+   def push(self, priority, value):
+       heapq.heappush(self.heap, (priority, value)) 
+
+   def pop(self):
+       return heapq.heappop(self.heap)
+
+   def peek(self):
+       return self.heap[0] if self.heap else None
+
+   def is_empty(self):
+       return not self.heap
+
+# Usage
+pq = CustomPriorityQueue()
+pq.push(2, "Task B")
+pq.push(1, "Task A")
+pq.push(3, "Task C")
+
+print(pq.pop())
+print(pq.peek())

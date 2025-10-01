@@ -1,4 +1,5 @@
-def topFreqElement(nums, k):
+"""
+def topKFrequent(nums, k):
     counter = {}
     freq = [[] for i in range(len(nums) + 1)]
 
@@ -12,8 +13,23 @@ def topFreqElement(nums, k):
         res+=freq[i]
         if len(res)==k:
             return res
-        
-nums = [1,1,1,2,3,3,4]
+"""
+from collections import Counter
+
+def topKFrequent(nums, k):
+    d = Counter(nums)
+    maxval = max(d.values()) 
+    res=[]
+    bucket=[[] for i in range(maxval+1)]
+              
+    for key, values in d.items():
+        bucket[values].append(key)
+    for i in range(len(bucket)-1,0,-1):
+        res+=bucket[i]
+        if len(res) == k:
+            return res
+            
+nums = [1,1,1,2,2,3]
 k = 2
 
-print(topFreqElement(nums, k))
+print(topKFrequent(nums, k))

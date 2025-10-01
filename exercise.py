@@ -117,7 +117,7 @@ def isPalindrome(s):
 
 s = "A man, a plan, a canal: Panama"
 print(isPalindrome(s))
-""" 
+
 
 def maxProfit(prices):
     res = 0
@@ -131,3 +131,7 @@ def maxProfit(prices):
 
 nums=[7,1,5,3,6,4]
 print(maxProfit(nums))
+"""
+nums=[1,1,1,2,2,3]
+bucket=[0 for i in range(len(nums)+1)]
+print(bucket)

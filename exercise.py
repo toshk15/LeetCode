@@ -53,31 +53,81 @@ def removeDuplicates(nums):
     return k
 nums=[1,1,2]
 print(removeDuplicates(nums))
-"""
+
 
 import heapq
 
-class CustomPriorityQueue:
-   def __init__(self):
-       self.heap = []
 
-   def push(self, priority, value):
-       heapq.heappush(self.heap, (priority, value)) 
+numbers = [5, 1, 8, 3, 7]
+heapq.heapify(numbers)
 
-   def pop(self):
-       return heapq.heappop(self.heap)
 
-   def peek(self):
-       return self.heap[0] if self.heap else None
+k = 8
+rsum=0
+res=0
+y=0
+diffleft=0
+maximun = 0
+nums=[96,90,41,82,39,74,64,50,30]
+x = sum(nums[:k])
+r = x
+#print(x)
+for i in range(1,k+1):   
+    y = sum(nums[-i:])
+    diffleft += nums[k-i]
+    rsum = x - diffleft
+    res = rsum + y    
+    maximun = max(maximun,x, res)
+print(maximun)
 
-   def is_empty(self):
-       return not self.heap
+print(nums[-8:])
+print(nums[:8])
 
-# Usage
-pq = CustomPriorityQueue()
-pq.push(2, "Task B")
-pq.push(1, "Task A")
-pq.push(3, "Task C")
 
-print(pq.pop())
-print(pq.peek())
+str1 = "ertsad"
+for i in range(len(str1) - 1, -1, -1):
+    print(i)
+
+
+
+for i in range(2,-1,-1):
+    print(i)
+  
+def isPalindrome(s):
+    s = s.replace(" ", "")
+    s = s.lower()
+    l,r = 0, len(s)-1
+    print(s)
+
+    while l<=r:
+        if not s[l].isalpha():
+            l+=1
+        if not s[r].isalpha():
+                r-=1           
+        if s[l] == s[r]:
+            l+=1
+            r-=1
+
+        if s[l] != s[r]:
+            print(s[l])
+            print(s[r])
+            return False
+
+    return True
+
+s = "A man, a plan, a canal: Panama"
+print(isPalindrome(s))
+""" 
+
+def maxProfit(prices):
+    res = 0
+        
+    lowest = prices[0]
+    for price in prices:
+        if price < lowest:
+            lowest = price
+        res = max(res, price - lowest)
+    return res
+
+nums=[7,1,5,3,6,4]
+print(maxProfit(nums))

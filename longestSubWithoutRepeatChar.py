@@ -11,7 +11,7 @@ def lenghtLogestSubString(s):
         res = max(res, r - l +1)
     return res
 
-s = "abcabcd"
+s = "abxabcy"
 print(lenghtLogestSubString(s))
 
 

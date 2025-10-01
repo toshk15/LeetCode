@@ -11,5 +11,5 @@ def lenghtLongestSub(s):
         res=max(res, r-l+1)
     return res
 
-s = "abcabcabcd"
+s = "xxxx"
 print(lenghtLongestSub(s))

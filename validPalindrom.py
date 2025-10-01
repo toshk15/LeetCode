@@ -6,7 +6,7 @@ def valiPalindrom(s):
         if ca.isalnum():
             newPal += ca.lower()
     return newPal == newPal[::-1]
-"""
+
 
 def validPalindrom(s):
     l,r = 0, len(s) - 1
@@ -25,7 +25,20 @@ def alphanum(c):
     return (ord("A") <= ord(c) <= ord("Z") or
             ord("a") <= ord(c) <= ord("z") or
             ord("0") <= ord(c) <= ord("9"))
+"""
+def isPalindrome(self, s: str):
+    s = "".join(c for c in s if c.isalnum())               
+    s = s.lower()      
+    l,r = 0, len(s)-1      
+   
+    if s=="":
+        return True
+        
+    while l<=r:
+        if s[l] == s[r]:
+            l+=1
+            r-=1  
+        else:
+            return False               
 
-
-s = "An#ita_lava_la_tina"
-print(validPalindrom(s))
+    return True

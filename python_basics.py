@@ -50,5 +50,8 @@ print(arr)
 
 """
 
-
+x=[chr(i) for i in range(ord("a"),ord("z")+1)]
+print(x)
+x="".join(x)
+print(x)
 

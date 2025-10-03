@@ -1,4 +1,5 @@
-def isValidPare(s):
+"""
+def isValid(s):
     stack = []
     parentheses = { ")":"(", "]":"[", "}":"{" }
 
@@ -12,6 +13,30 @@ def isValidPare(s):
             stack.append(c)
     
     return True if not stack else False
+"""
+def isValid(s):
+    stack=[]
 
-s = "{}(())"
-print(isValidPare(s))
+    if len(s)==1:
+        return False
+
+    for c in s:
+        if c=="(":
+            stack.append(")")
+        elif c=="{":
+            stack.append("}")
+        elif c=="[":
+            stack.append("]")
+        else:
+            if not stack:
+                return False
+            cc=stack.pop()
+            if c!=cc:
+                return False
+    if stack:
+        return False
+    return True
+        
+
+s = "()"
+print(isValid(s))

@@ -136,7 +136,62 @@ nums=[1,1,1,2,2,3]
 bucket=[0 for i in range(len(nums)+1)]
 print(bucket)
 
-"""
 
-for i in range("a", "z"):
-    print(i)
+from collections import deque
+
+q = deque()
+q.append(1)
+
+x=[1,2,3,4]
+res=[0]*4
+res[0]=x[0]
+res[0]=x[1]
+
+print(res)
+
+
+matrix = [[3,7,8],[9,11,13],[15,16,17]]
+m=matrix[0][0]
+for i in range(len(matrix)):
+    maxi=0
+    for j in range(len(matrix)):
+        maxi = max(matrix[j][i], m)
+    n = min(matrix[i])
+    if maxi == n:
+        print(n)
+ 
+    
+
+#print(matrix[0])
+#print(matrix[1])
+#print(matrix[2])
+
+#for i in matrix:
+    #print(i[2])
+    
+#matrix = [[3,7,8],[9,11,13],[15,16,17]]
+matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
+t = list(zip(*matrix))
+print(t)
+
+for row in range(len(matrix)):
+    m = min(matrix[row])
+    ma=0
+    for col in range(len(t)):
+        ma = max(t[col])
+        if m == ma:
+            print(m,ma)
+ 
+
+mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
+print(mat[0][0])
+""" 
+mat = [[1,1,1],[1,1,0]]
+max_ones=0
+stack=[]
+for idx,row in enumerate(mat):  
+    c=row.count(1)
+    if c>max_ones:
+        stack.append([idx,c])
+        max_ones=c
+print(stack.pop())

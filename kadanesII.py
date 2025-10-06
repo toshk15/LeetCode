@@ -1,17 +1,25 @@
-def kadanes(arr):
-    maxSub = arr[0]
-    prevSum = arr[0]
+def maxSubArray(nums):
+    """
+    max_sum = nums[0]
+    curr_max = nums[0]
 
-    for i in range(len(arr) -1):
-        if prevSum < 0:
-            prevSum = arr[i]
+    for i in range(1, len(nums)):
+        curr_max = max(nums[i], nums[i]+curr_max)
+        max_sum = max(curr_max, max_sum)
+    return max_sum
+    """
+    max_sum=nums[0]
+    prev_sum=nums[0]
+
+    for i in range(1,len(nums)):
+        if prev_sum<0:
+            prev_sum = nums[i]
         else:
-            prevSum = prevSum + arr[i]
-        
-        if prevSum > maxSub:
-            maxSub = prevSum
-    return maxSub
+            prev_sum = prev_sum+nums[i]
+        if prev_sum>max_sum:
+            max_sum = prev_sum
+    return max_sum
 
 arr = [3,-7,10, 2,-2]
 
-print(kadanes(arr))
+print(maxSubArray(arr))

@@ -25,12 +25,23 @@ def PosOrder(root):
     
     return res
 
+"""
+    res = []
+    def helper(root):
+        if not root:
+            return None
+        helper(root.left)
+        helper(root.right)
+        res.append(root.val)
+    helper(root)
+    return res
+"""
 
 root = Tree(5)
 root.left = Tree(3)
 root.right = Tree(7)
-root.left.right = Tree(4)
-root.right.right = Tree(9)
+#root.left.right = Tree(4)
+#root.right.right = Tree(9)
 
 print(PosOrder(root))
         

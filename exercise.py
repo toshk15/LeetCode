@@ -185,7 +185,7 @@ for row in range(len(matrix)):
 
 mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 print(mat[0][0])
-""" 
+
 mat = [[1,1,1],[1,1,0]]
 max_ones=0
 stack=[]
@@ -195,3 +195,81 @@ for idx,row in enumerate(mat):
         stack.append([idx,c])
         max_ones=c
 print(stack.pop())
+
+l=1200
+h=1230
+res=[]
+s=''
+sum1=0
+sum2=0
+for i in range(l, h+1):    
+    s=str(i)
+    n=len(s)//2 
+    if len(s)%2:
+        continue
+    s1=s[:n]
+    for x in s1:
+        sum1+=int(x)
+ 
+    s2=s[n:]
+    for x in s2:
+        sum2+=int(x)
+    if sum1==sum2:
+        print(i)
+    sum1=0
+    sum2=0
+
+
+import math
+n=10
+res=[]
+y = [i*i for i in range(1,n+1)]
+print(y)
+for i in range(1,11):
+    for j in range(1,11):
+        x1=i**2 + j**2
+        #print(x1)
+        if x1 in y:
+            
+            res.append((i,j,math.sqrt(x1)))
+print(len(res))
+        #if x1 in y:
+            #print(x1)
+
+
+def countElements(nums):
+    l,r=0,len(nums)
+    nums.sort()
+ 
+      
+    c=r-l
+    return c-2
+
+nums = [-71,-71,93,-71,40]
+print(countElements(nums))
+
+
+n=2147483644
+res=''
+res2='0'*32
+
+while n>0:
+    res=str(n%2)+res
+    n//=2
+
+n = len(res)
+m = 32-n
+res='0'*m + res
+print(res)
+res = res[::-1]
+print(res)
+num1 = int(res, 2)
+print(num1)
+
+""" 
+num1 ="9333852702227987"
+num2 ="85731737104263"
+print(float.__floor__(num1))
+print(float(num2))
+res = float(num1)+float(num2)
+print(res)

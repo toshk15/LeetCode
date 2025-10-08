@@ -2,8 +2,8 @@ class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
-
-    def removeElement(self,head, val):
+    """
+    def removeElements(self,head, val):
         prev = curr = head
 
         while curr:
@@ -15,6 +15,20 @@ class Node:
             curr = curr.next
 
         return head
+    """
+    def removeElements(self, head, val):
+        dummy = Node(0,head)
+        prev = dummy
+        curr = head
+
+        while curr:
+            if curr.val != val:
+                prev = curr
+                curr=curr.next
+            else:
+                prev.next = curr.next 
+                curr = curr.next
+        return dummy.next   
     
     def printLinkList(self, head):
         curr = head
@@ -30,6 +44,6 @@ head.next.next = Node(3)
 head.next.next.next = Node(4)
 head.next.next.next.next = Node(3)
 
-head.removeElement(head, 3)
+head.removeElements(head, 3)
 head.printLinkList(head)
 

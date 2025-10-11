@@ -266,10 +266,111 @@ print(res)
 num1 = int(res, 2)
 print(num1)
 
+
+def canBeIncreasing(nums):
+    stack=[]
+    s=set()
+    for i in nums:
+        if not stack:
+            stack.append(i)
+            s.add(i)
+        elif stack[-1]<i and i not in s:
+            stack.append(i)
+            s.add(i)
+        else:
+            while stack and stack[-1]>i:
+                stack.pop()
+            if i not in s:
+                stack.append(i)
+    if len(stack)>1:
+        return True
+    else:
+        return False
+
+nums = [2,3,1,2]
+print(canBeIncreasing(nums))
+
+
+def moveZeroes(nums):
+      
+    l,r=0,1
+
+    while r<len(nums):
+        if nums[l]==0 and nums[r]!=0:
+            nums[l],nums[r]=nums[r],nums[l]
+            r+=1
+            l+=1
+        elif nums[l]==0 and nums[r]==0:
+            r+=1
+    return nums
+nums = [0,1,0,3,12]
+print(moveZeroes(nums))
+
 """ 
-num1 ="9333852702227987"
-num2 ="85731737104263"
-print(float.__floor__(num1))
-print(float(num2))
-res = float(num1)+float(num2)
-print(res)
+
+def wordPattern(pattern, s):
+    """
+    p=set(pattern)
+    p = list(p)
+    p.sort()
+
+    #print(p)
+    s = s.split()
+    #print(s)
+    ss=set(s)
+    sf = list(ss)
+    sf.sort()
+    #print(sf)
+    
+    print(sf)
+    d={}
+    for i,j in zip(p,sf):
+        d[i]=j
+    print(d)
+    sr=[]
+    for i in pattern:
+        sr.append(d[i])
+    #print(sr)
+
+    if sr == s:
+        return True
+    else:
+        return False
+
+    """
+
+    """
+    p=set(pattern) 
+    pp=list(p)
+    print(len(p)) 
+    s=s.split()     
+    ss=set(s)
+    print(len(ss))
+        
+      
+    if len(pp)==len(ss):
+        return True
+    else:
+        return False
+
+pattern = "abba"
+s = "dog cat cat dog"
+print(wordPattern(pattern, s))
+
+
+    """
+
+def reverseWords(s):
+    res=[]
+    
+    s = s.split()
+    #print(s)
+        
+    for i in s:
+        #print(str(i[::-1]))
+        res.append(i[::-1])
+    return " ".join(res)
+
+s ="Let's take LeetCode contest"
+#print(s[::-1])
+print(reverseWords(s))

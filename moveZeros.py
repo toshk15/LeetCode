@@ -13,6 +13,25 @@ def moveZeros(arr):
         i+=1
 
     return arr
+"""
+def moveZeroes(self, nums: List[int]) -> None:
+      
+        l,r=0,1
 
+        while r<len(nums):
+            if nums[l]==0 and nums[r]!=0:
+                nums[l],nums[r]=nums[r],nums[l]
+                r+=1
+                l+=1
+            elif nums[l]==0 and nums[r]==0:
+                r+=1
+            elif nums[l]!=0 and nums[r]!=0:                
+                r+=1
+                l+=1
+            elif nums[l]!=0 and nums[r]==0:                
+                r+=1
+                l+=1
+        return nums
+"""
 arr = [0,0,0,1,2,3]
 print(moveZeros(arr))

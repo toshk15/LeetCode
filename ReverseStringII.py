@@ -1,14 +1,11 @@
-def reverseStr(s,k):
-    i=0
+def reverseStr(self, s: str, k: int) -> str:
     n=len(s)
     t=""
-    while k*i < n:
-        t+=s[2*k*i:2*k*(i+1)][::-1]
-        t+=s[2*k*(i+1):2*2*k*(i+1)]            
-        #print(t)
-        i+=1
-        
-    return t
+    for i in range(0,n,2*k):
+        t+=s[i:i+k][::-1] 
+        t+=s[i+k:i+2*k]
+    return t            
+
 s ="abcdefg"
 #s ="hyzqyljrnigxvdtneasepfahmtyhlohwxmkqcdfehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqlimjkfnqcqnajmebeddqsgl"
 print(reverseStr(s,2))

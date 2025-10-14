@@ -33,7 +33,7 @@ def printLinkList(head):
         print(curr.val)
         curr = curr.next
 """
-
+"""
 def isPalindrome(head):
 
     s, f = head, head
@@ -54,6 +54,24 @@ def isPalindrome(head):
             return False
         else:
             s = s.next
+    return True
+
+"""
+def isPalindrome(head):
+    elements = []
+
+    while head:
+        elements.append(head.val)
+        head = head.next
+        
+    first, last = 0, len(elements) -1
+
+    while first < last:
+        if elements[first] == elements[last]:
+            first+=1
+            last-=1
+        else:
+            return False
     return True
 
 head = Node(1)

@@ -26,6 +26,35 @@ def dfs(node1, node2):
     
     return dfs(node1.right,node2.left)
 
+"""
+def isSymmetric(root):
+    if not root.left and not root.right:
+        return True
+
+    ql = deque()
+    qr = deque()
+
+    ql.append(root.left)
+    qr.append(root.right)
+
+    while ql and qr:
+        node_l = ql.pop()
+        node_r = qr.pop()
+
+        if node_l == None and node_r==None:
+            continue
+
+        if not node_l or not node_r:
+            return False
+            
+        if node_l.val != node_r.val:
+            return False
+            
+        ql.append(node_l.left)
+        ql.append(node_l.right)
+        qr.append(node_r.right)
+        qr.append(node_r.left)
+"""
 node = Tree(5)
 node.left = Tree(2)
 node.right = Tree(2)

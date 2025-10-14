@@ -358,7 +358,7 @@ s = "dog cat cat dog"
 print(wordPattern(pattern, s))
 
 
-    """
+
 
 def reverseWords(s):
     res=[]
@@ -374,3 +374,79 @@ def reverseWords(s):
 s ="Let's take LeetCode contest"
 #print(s[::-1])
 print(reverseWords(s))
+
+
+def reverseStr(s, k):
+    n=len(s)
+    t=""
+    for i in range(0,n,2*k):
+        t+=s[i:i+k][::-1] 
+        t+=s[i+k:i+2*k]
+    return t
+
+s ="abcdefg"
+print(reverseStr(s,2))
+
+#print(s[6:8])
+
+
+
+
+def lengthOfLongestSubstring(s):
+    c = set()
+    n=0
+    m=0
+    for i in s:
+        if i not in c:
+            c.add(i)
+            n+=1
+        else:
+            m = max(n,m)
+            n=1
+    return m
+
+s="abcabcbb"
+print(lengthOfLongestSubstring(s))
+
+
+def reverseWords(s):
+    #s = s.replace(" ", ",")
+    print(s)
+    s=s.split()
+    s = s[::-1]
+  
+
+    return " ".join(s)
+
+#s = "the sky is blue"
+s="the sky is blue"
+#s = "a good   example"
+print(reverseWords(s))
+"""
+
+#mat=[[0,0],[0,1],[1,0],[0,2],[2,0]]
+#print(mat[0][1])
+#print(mat)
+
+def lengthOfLongestSubstring(s) -> int:
+    if s==" ":
+        return 1
+
+    if len(s)==1:
+        return 1
+
+    c=set()
+    n = len(s)
+    ma = 0
+    x=0
+    for i in range(n-1):
+        while s[i] in c:
+            c.remove(s[x])
+            x+=1
+        c.add(s[i])
+        ma = max(ma,i-x+1)
+    return ma
+    
+s="au"
+print(lengthOfLongestSubstring(s))
+

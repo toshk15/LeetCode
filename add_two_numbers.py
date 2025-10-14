@@ -22,7 +22,37 @@ def add_two_numbers(num1, num2):
         num1 = num1.next if num1 else None
         num2 = num2.next if num2 else None
     return dummy.next
-    
+
+"""
+def addTwoNumbers(l1, l2):
+    res = ListNode()
+    resHead = res
+    carry = 0
+    while l1 and l2:
+        new = ListNode(l1.val + l2.val + carry)
+        carry = 0
+        if new.val >= 10:
+            carry = 1
+            new.val -= 10
+        l1, l2 = l1.next, l2.next
+        res.next = new
+        res = res.next
+        
+    cur = l1 if l1 else l2
+    while cur:
+        new = ListNode(cur.val + carry)
+        carry = 0
+        if new.val >= 10:
+            carry = 1
+            new.val -= 10
+        cur = cur.next
+        res.next = new
+        res = res.next
+    if carry:
+        res.next = ListNode(1)
+        
+    return resHead.next
+"""  
 def printList(head):
     curr = head
     while curr:

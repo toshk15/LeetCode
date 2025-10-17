@@ -422,7 +422,7 @@ def reverseWords(s):
 s="the sky is blue"
 #s = "a good   example"
 print(reverseWords(s))
-"""
+
 
 #mat=[[0,0],[0,1],[1,0],[0,2],[2,0]]
 #print(mat[0][1])
@@ -450,3 +450,10 @@ def lengthOfLongestSubstring(s) -> int:
 s="au"
 print(lengthOfLongestSubstring(s))
 
+"""
+
+s = ["flower","flow","flight"]
+mi = min(s)
+ma = max(s)
+print(mi)
+print(ma)

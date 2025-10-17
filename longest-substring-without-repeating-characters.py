@@ -25,7 +25,7 @@ def lengthOfLongestSubstring(s):
 
     return ans
 
-
+"""
 def lengthOfLongestSubstring(s):
     b=0
     for i in range(len(s)):
@@ -46,52 +46,3 @@ print(lengthOfLongestSubstring(s))
 
 
 
-class MinStack:
-
-    def __init__(self):
-        self.stack=[]
-        self.minStack=[]        
-
-    def push(self, val: int) -> None:
-        self.stack.append(val)
-        if self.minStack:
-            value = min(self.minStack[-1],val)
-        else:
-            value = val
-        self.minStack.append(value)
-
-    def pop(self) -> None:      
-        self.stack.pop()
-        if self.minStack:
-            self.minStack.pop()             
-
-    def top(self) -> int:
-        if self.stack:
-            return self.stack[-1]        
-
-    def getMin(self) -> int:
-        if self.minStack:
-            return self.minStack[-1]
-        
-s= MinStack()
-s.push(-2)
-s.push(0)
-s.push(-1)
-print(s.getMin())
-s.pop()
-print(s.getMin())
-
-"""
-def largestTriangleArea(points):
-    maxi=float("-inf")
-    maxj=float("-inf")
-    for i,j in points:
-        if i>maxi:
-            maxi=i
-        if j>maxj:
-            maxj=j
-    area=(maxi*maxj)/2
-    return area
-
-points = [[1,0],[0,0],[0,1]]
-print(largestTriangleArea(points))

@@ -22,6 +22,27 @@ def balance_tree(root):
     
     return 1 + max(node_left, node_right)
 
+"""
+def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        b=[True]
+
+        def height(root):
+            if not root:
+                return 0
+            
+            left=height(root.left)
+            if b[0]==False:
+                return 0
+            right=height(root.right)
+
+            if abs(left-right)>1:
+                b[0]=False
+                return 0
+            return 1+max(left,right)
+        height(root)
+        return b[0]
+"""
+
 root = Tree(5)
 root.left = Tree(4)
 root.right = Tree(6)

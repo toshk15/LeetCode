@@ -450,10 +450,139 @@ def lengthOfLongestSubstring(s) -> int:
 s="au"
 print(lengthOfLongestSubstring(s))
 
-"""
+
 
 s = ["flower","flow","flight"]
 mi = min(s)
 ma = max(s)
 print(mi)
 print(ma)
+
+
+def sub(s):
+    n=0
+    res=[]
+    c=0
+    while n<len(s)-2:
+        print(s[n:n+3])
+        if "OOO" in s[n:n+3]:
+            n+=1
+        else:
+            c+=1
+            n+=1
+    return c
+
+#s = "XXOX"
+#s="OOOO"
+s="XXX"
+print(sub(s))
+
+
+def isMonotonic(nums):
+    f = [True if nums[0]<nums[-1] else False]
+    if f[0]:
+        for i in range(len(nums)-1):
+            j=i+1
+            if nums[i]<=nums[j]:
+                continue
+            else:
+                return False
+    else:
+        for i in range(len(nums)-1):
+            j=i+1
+            if nums[i]>=nums[j]:
+                continue
+            else:
+                return False
+    return True
+
+nums = [6,5,4,4]
+print(isMonotonic(nums))
+
+
+from collections import Counter
+import heapq
+def topFeq(nums, k):
+    c = Counter(nums)
+    heap=[]
+
+    for key,val in c.items():
+        if len(heap)<k:
+            heapq.heappush(heap, (val,key))
+        else:
+            heapq.heappushpop(heap, (val,key))
+    h=[h[1] for h in heap]
+    return h
+nums = [1,1,1,2,2,3]
+print(topFeq(nums, 2))
+
+
+def multiply(num1,num2):
+    if "0" in [num1, num2]:
+        return "0"
+    
+    res = [0] * (len(num1) + len(num2))
+    num1, num2 = num1[::-1], num2[::-1]
+    for i1 in range(len(num1)):
+        for i2 in range(len(num2)):
+            digit = int(num1[i1]) * int(num2[i2])
+            res[i1 + i2] += digit
+            res[i1 + i2 + 1] += res[i1 + i2] // 10
+            res[i1 + i2] = res[i1 + i2] % 10
+
+    res, beg = res[::-1], 0
+    while beg < len(res) and res[beg] == 0:
+        beg += 1
+    res = map(str, res[beg:])
+    return "".join(res)
+
+num1 = "123"
+num2 = "456"
+print(multiply(num1,num2))
+
+from collections import Counter
+def wordBreak(s, wordDict):
+    maxlen=0
+    wordset = set(wordDict)
+    print(wordset)
+    for word in wordDict:
+        maxlen=max(maxlen, len(word))
+    n = len(s)
+    dp = [0]*(n+1)
+    dp[0]=True
+    #print(dp) print(maxlen)  
+    for i in range(1, n+1):
+        for j in range(i - 1, max(0, i - maxlen) - 1, -1):        
+            if dp[j] and s[j:i] in wordset:
+                dp[i]=True
+                break
+    print(dp)
+    return dp[n]
+
+         
+   
+s = "catsandog"
+wordDict = ["cats","dog","sand","and","cat"]
+#s="leetcode"
+#wordDict=["leet","code"]
+#s = "applepenapple"
+#wordDict = ["apple","pen"]
+print(wordBreak(s, wordDict))
+"""
+
+def hindex(citations):
+    n=len(citations)
+    pc=[0]*(n+1)
+
+    for c in citations:
+        pc[min(n,c)]+=1
+    h=n
+    papers=pc[n]
+
+    while papers<h:
+        h-=1
+        papers+=pc[h]
+
+    return h
+citations = [3,0,6,1,5]
+print(hindex(citations))

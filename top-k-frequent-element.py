@@ -1,4 +1,4 @@
-"""
+
 def topKFrequent(nums, k):
     counter = {}
     freq = [[] for i in range(len(nums) + 1)]
@@ -28,6 +28,7 @@ def topKFrequent(nums, k):
         res+=bucket[i]
         if len(res) == k:
             return res
+"""
             
 nums = [1,1,1,2,2,3]
 k = 2

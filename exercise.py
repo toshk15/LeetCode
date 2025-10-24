@@ -568,7 +568,7 @@ wordDict = ["cats","dog","sand","and","cat"]
 #s = "applepenapple"
 #wordDict = ["apple","pen"]
 print(wordBreak(s, wordDict))
-"""
+
 
 def hindex(citations):
     n=len(citations)
@@ -586,3 +586,211 @@ def hindex(citations):
     return h
 citations = [3,0,6,1,5]
 print(hindex(citations))
+
+
+def trap(height):
+    if not height:
+        return 0
+
+    l, r = 0, len(height) - 1
+    leftMax, rightMax = height[l], height[r]
+    res = 0
+    while l < r:
+        if leftMax < rightMax:
+            l += 1
+            leftMax = max(leftMax, height[l])
+            res += leftMax - height[l]
+        else:
+            r -= 1
+            rightMax = max(rightMax, height[r])
+            res += rightMax - height[r]
+    return res
+
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+print(trap(height))
+"""
+"""
+from collections import Counter
+def topKFrequent(nums,k):
+    n = len(nums)
+    counter = Counter(nums)
+    buckets = [0] * (n + 1)
+
+    for num, freq in counter.items():
+        if buckets[freq] == 0:
+            buckets[freq] = [num]
+        else:
+            buckets[freq].append(num)
+        
+    ret = []
+    for i in range(n, -1, -1):
+        if buckets[i] != 0:
+            ret.extend(buckets[i])
+        if len(ret) == k:
+            break
+      
+    return ret
+nums = [1,1,1,2,2,3,3,3]
+k = 2
+print(topKFrequent(nums,k))
+
+
+def trap(height):
+       
+    n = len(height)
+    l_max = [0] * n
+    r_max = [0] * n
+
+    l_max[0] = height[0]
+    r_max[-1] = height[-1]
+
+    result = 0
+    for l in range(1, n):
+        l_max[l] = max(l_max[l-1], height[l])
+
+    for r in range(n-2, -1, -1):
+        r_max[r] = max(r_max[r+1], height[r])
+
+    for i in range(1, n-1):
+        result += min(l_max[i], r_max[i]) - height[i]
+       
+    return result
+
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+print(trap(height))
+
+
+
+def triangle(numRows):
+
+    triangle=[[1]]
+  
+    for i in range(numRows-1):
+        res=[]
+        temp = [0]+triangle[-1]+[0]
+        for x in range(len(triangle[-1])+1):
+            res.append(temp[x]+temp[x+1])
+
+        triangle.append(res)
+
+    return triangle
+
+numRows = 5
+print(triangle(numRows))
+"""
+"""
+def mono(nums):
+    c1=0
+    c2=0
+
+    for i in range(len(nums)-1):
+        if nums[i]<=nums[i+1]:
+            c1+=1
+        if nums[i]>=nums[i+1]:
+            c2+=1
+     
+    if c1==len(nums)-1 or c2==len(nums)-1:
+        return True
+    else:
+        return False
+
+nums=[1,2,2,3]
+#nums=[5,7,4,2,1]
+print(mono(nums))
+
+def numIdenticalPairs(nums):
+    c=0
+    for i in range(len(nums)):
+        for j in range(i+1,len(nums)):
+            if nums[i]==nums[j]:
+                c+=1
+    return c
+
+nums =[1,2,3,1,1,3]
+print(numIdenticalPairs(nums))
+
+def generate(numRows):
+    triangle=[[1]]     
+    
+    for x in range(numRows-1):  
+        res=[]      
+        tem=[0]+triangle[-1]+[0]  
+        for i in range(len(triangle[-1])+1):            
+            res.append(tem[i]+tem[i+1])
+        triangle.append(res)
+              
+    return triangle[4]
+numRows = 5
+print(generate(numRows))
+
+def romantoint(s):
+    d = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+    i=0
+    res=0
+    while i < len(s):
+        if i<len(s)-1 and d[s[i]]<d[s[i+1]]:
+            res+=d[s[i+1]]-d[s[i]]
+            i+=2
+        
+        else:
+            res+=d[s[i]]
+            i+=1
+    return res  
+s = "III"  
+#s = "MCMXCIV"
+print(romantoint(s))
+
+
+def mySqrt(x):
+    l=0
+    r=x
+    res=0
+    if x==1:
+        return 1
+    while l<=r:
+         
+        m=l+((r-l)//2)
+
+        if m**m>x:
+            r=m-1                
+        elif m**m<x:
+            l=m+1  
+            res=m            
+        else:
+            return m
+    return res
+x=9
+y=9
+if x>y:
+    print("hello")       
+n=9
+print(mySqrt(n))
+
+def arraySign(nums):
+    l,r=0,len(nums)-1
+    c=0
+    while l<=r:
+        if nums[l] == 0 or nums[r]==0:
+            return 0
+        if nums[l]<0:
+            c+=1
+        if nums[r]<0:
+            c+=1  
+        if nums[r]==nums[l]:
+            c-=1          
+        l+=1
+        r-=1
+    if c%2==0:
+        return 1
+    else:
+        return -1
+#nums = [-1,-2,-3,-4,3,2,1]
+nums = [-1,1,-1,1,-1]
+print(arraySign(nums))
+            
+"""
+
+for i in range(-16):
+    print(i)
+import math
+print(math.sqrt(-16))

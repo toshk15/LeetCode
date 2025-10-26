@@ -788,9 +788,85 @@ def arraySign(nums):
 nums = [-1,1,-1,1,-1]
 print(arraySign(nums))
             
-"""
 
-for i in range(-16):
-    print(i)
-import math
-print(math.sqrt(-16))
+
+def flipAndInvertImage(image):
+    row = len(image)
+    col = len(image[0])
+
+    for i in range(row):
+        image[i][:]=[image[i][::-1]]
+        for j in range(col):
+            
+            if image[i][j]==1:
+                image[i][j]=0
+            else:
+                image[i][j]=1
+    return image
+
+res2=[]
+image = [[1,1,0],[1,0,1],[0,0,0]]
+for x in image:
+    res1=[]
+    for y in x:
+        if y==1:
+            y=0
+        else:
+            y=1
+        res1.append(y)
+    res2.append([res1[::-1]])
+
+print(res2)
+#print(flipAndInvertImage(image))
+
+
+words = ["bella","label","roller"]
+from collections import Counter
+r=[]
+for c in words:
+    r.append(Counter(c))
+print(r)
+aux=r[0]
+for i in range(1,len(r)):
+    aux&=r[i]
+print(aux)
+res=[]
+for i, j in aux.items():
+    res.append(i*j)
+res= "".join(res)
+
+r=[]
+for i in res:
+    r+=i
+print(r)
+
+def findMissingAndRepeatedValues(grid):
+    row=len(grid)
+    col=len(grid[0])
+    n=row*col
+
+    s = set()
+    for i in range(1,n+1):
+        s.add(i)
+
+    for i in range(row):
+        for j in range(col):
+            if grid[i][j] in s:
+                s.remove(grid[i][j])
+            else:
+                s.add(grid[i][j])
+    return list(s)
+
+
+#grid = [[1,3],[2,2]]
+grid = [[9,1,7],[8,9,2],[3,4,6]]
+print(findMissingAndRepeatedValues(grid))
+"""
+minimum=float("inf")
+maximum=float("-inf")
+arrays = [[1,2,3],[4,5],[1,2,3]]
+for i in arrays:
+    minimum = min(min(i),minimum)
+    maximum = max(max(i),maximum)
+print(maximum)
+print(minimum)

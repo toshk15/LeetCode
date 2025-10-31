@@ -861,12 +861,243 @@ def findMissingAndRepeatedValues(grid):
 #grid = [[1,3],[2,2]]
 grid = [[9,1,7],[8,9,2],[3,4,6]]
 print(findMissingAndRepeatedValues(grid))
+
+
+def maxDistance(arrays):
+    maximum = arrays[0][-1]
+    minimum = arrays[0][0]
+    s3=float("-inf")
+
+    for n in range(1,len(arrays)):
+        s1=maximum-arrays[n][0]
+        s2=arrays[n][-1]-minimum
+        maximum=max(maximum,arrays[n][-1])
+        minimum=min(minimum,arrays[n][0])
+        s3=max(s3,s1,s2)
+
+    return s3
+
+arrays=[[-8,-7,-7,-5,1,1,3,4],[-2],[-10,-10,-7,0,1,3],[2]]
+print(maxDistance(arrays))
+
+
+def lemonadeChange(bills):
+    five=0
+    ten=0
+    twenty=0
+
+    for c in bills:
+        if c==5:
+            five+=1             
+        if c==10:
+            ten+=1
+            five-=1
+            if five<0:
+                return False
+        if c==20:
+            twenty+=1                
+            if ten<=0 and five<=0:
+                return False
+            elif ten<=0 and five>=3:
+                five-=3                   
+            else:
+                ten-=1
+                five-=1
+        
+    return True
+
+bills = [5,5,10,20,5,5,5,5,5,5,5,5,5,10,5,5,20,5,20,5]
+print(lemonadeChange(bills))
+
+
+def findContentChildren(g,s):
+    g.sort()
+    s.sort()
+    l=r=0
+    c=0
+
+    while l<len(s):
+        if l<len(s) and r<len(g) and s[l]>=g[r]:
+            l+=1
+            r+=1
+            c+=1
+        elif l==len(s):
+            break
+        else:
+            l+=1
+    return c
+
+#g = [1,2,3]
+#s = [1,1]
+
+g = [1,2]
+s = [1,2,3]
+print(findContentChildren(g,s))
+
+
+
+def canPlaceFlowers(flowerbed, n):
+    flowerbed = [0]+flowerbed+[0]
+    for i in range(1,len(flowerbed)):
+        
+        if i+1<len(flowerbed) and flowerbed[i]==0 and flowerbed[i-1]==0 and flowerbed[i+1]==0:
+            flowerbed[i]=1
+            n-=1
+    return True if n==0 else False
+
+    
+#flowerbed = [1,0,0,0,0,1]
+flowerbed = [0,0,1,0,1]
+#flowerbed = [0,1,0] #[0,0,1,0,0]
+n=1
+print(canPlaceFlowers(flowerbed,n))
 """
-minimum=float("inf")
-maximum=float("-inf")
-arrays = [[1,2,3],[4,5],[1,2,3]]
-for i in arrays:
-    minimum = min(min(i),minimum)
-    maximum = max(max(i),maximum)
-print(maximum)
-print(minimum)
+"""
+def matrix(mat):
+    if not mat or not mat[0]:
+        return []
+    R,C=len(mat), len(mat[0])
+    result=[]
+    row, col = 0,0
+    dir=1
+
+    while len(result)<R*C:
+        result.append(mat[row][col])
+
+        if dir==1:
+            if col==C-1:
+                row+=1
+                dir=-1
+            elif row==0:
+                col+=1
+                dir=-1
+            else:
+                row-=1
+                col+=1
+        else:
+            if row==R-1:
+                col+=1
+                dir=1
+            elif col==0:
+                row+=1
+                dir=1
+            else:
+                row+=1
+                col-=1
+    return result
+
+"""
+
+"""
+from collections import defaultdict
+def isToeplitzMatrix(matrix):
+    d = defaultdict(list)
+    R=len(matrix)
+    C=len(matrix[0])
+    for i in range(R):
+        for j in range(C):
+            d[i-j].append(matrix[i][j])
+       
+    for o in d.values():
+        o=set(o)
+        if len(o)==1:
+            continue
+        else:
+            return False
+    return True
+m=[[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+print(isToeplitzMatrix(m))
+
+
+from collections import defaultdict
+def matrix(mat):
+    if not mat or not mat[0]:
+        return []
+    
+    R,C=len(mat),len(mat[0])
+    dia =defaultdict(list)
+
+    for i in range(R):
+        for j in range(C):
+            dia[i+j].append(mat[i][j])
+
+    result=[]
+
+    for i in dia.values():
+        print(i)
+        i = set(i)
+        print(i)
+
+    for i in range(R+C-1):
+        if i%2==0:
+            dia[i].reverse()
+
+        result.extend(dia[i])
+    
+    return result
+    
+
+
+mat = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+print(matrix(mat))
+
+
+def modifiedMatrix(matrix): 
+    R=len(matrix)
+    C=len(matrix[0])   
+    for i in range(R):
+        for j in range(C):
+            if matrix[i][j]==-1:
+                m=findGreatest(i,j,R)
+                matrix[i][j]=m 
+    return matrix   
+
+def findGreatest(i,j,R):
+    m=float("-inf")
+    while i<R:
+        m = max(m,matrix[i][j])
+        i+=1
+    return m
+    
+
+
+
+matrix = [[1,2,-1],[4,-1,6],[7,8,9]]
+print(modifiedMatrix(matrix))
+
+
+def nextGreaterElement(nums1,nums2):
+    m = 0 
+    res=[]
+    for n in nums1:
+        index=nums2.index(n)
+        for nn in nums2[index:]:
+            if nn>n:
+                m=nn
+                break
+            else:
+                m=-1
+        res.append(m)
+
+nums1 = [4,1,2]
+nums2 = [1,3,4,2]
+print(nextGreaterElement(nums1, nums2))
+"""
+
+def findLUSlength(a, b):
+    c=0
+    la=len(a)
+    lb=len(b)
+    
+    for i,j in zip(a,b):
+        print(i,j)
+        if i!=j:
+            c+=1
+    return -1 if c==0 else c
+                    
+                
+a = "aefawfawfawfaw"
+b = "aefawfeawfwafwaef"            
+#a = "aba"
+#b = "cdc"
+print(findLUSlength(a,b))

@@ -1,29 +1,35 @@
-def totalNQueens(n):  
+def solveNQueens(n): 
+    col = set()
+    posDiag = set()  # (r + c)
+    negDiag = set()  # (r - c)
 
-        def dfs(row):
-            if row == n:
-                nonlocal solution_count
-                solution_count += 1
-                return
+    res = []
+    board = [["."] * n for i in range(n)]
 
-            for col in range(n):
+    def backtrack(r):
+        if r == n:
+            copy = ["".join(row) for row in board]
+            res.append(copy)
+            return
 
-                pos_diag = row + col
-                neg_diag = row - col + n  
+        for c in range(n):
+            if c in col or (r + c) in posDiag or (r - c) in negDiag:
+                continue
 
-                if cols[col] or diag[pos_diag] or anti_diag[neg_diag]:
-                    continue
-                cols[col] = diag[pos_diag] = anti_diag[neg_diag] = True
-                dfs(row + 1)
-                cols[col] = diag[pos_diag] = anti_diag[neg_diag] = False
+            col.add(c)
+            posDiag.add(r + c)
+            negDiag.add(r - c)
+            board[r][c] = "Q"
 
+            backtrack(r + 1)
 
-        cols = [False] * n  # Columns where the queens can attack
-        diag = [False] * (2 * n)  # Positive diagonals (index = row + col)
-        anti_diag = [False] * (2 * n)  # Negative diagonals (index = row - col + n)
-        solution_count = 0  # Counter for number of valid solutions      
+            col.remove(c)
+            posDiag.remove(r + c)
+            negDiag.remove(r - c)
+            board[r][c] = "."
 
-        dfs(0)
-        return solution_count
+    backtrack(0)
+    return res
+       
 
-print(totalNQueens(4))
+print(solveNQueens(4))

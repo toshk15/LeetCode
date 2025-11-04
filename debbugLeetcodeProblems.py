@@ -1082,7 +1082,7 @@ def nextGreaterElement(nums1,nums2):
 nums1 = [4,1,2]
 nums2 = [1,3,4,2]
 print(nextGreaterElement(nums1, nums2))
-"""
+
 
 def findLUSlength(a, b):
     c=0
@@ -1101,3 +1101,143 @@ b = "aefawfeawfwafwaef"
 #a = "aba"
 #b = "cdc"
 print(findLUSlength(a,b))
+
+class Solution:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+        ss=s+s
+        
+        if s in ss[1:-1]:
+            return True
+        else:
+            return False
+
+s = "abab"
+print(repeatedSubstringPattern(s))
+
+
+
+def search(nums,target):
+    l=0
+    r=len(nums)
+
+    while l<=r:
+        m=l+(r-l)//2
+
+        if nums[m]==target:
+            return m
+        if nums[m]<target:
+            l=m+1
+        else:
+            r=m-1
+    return -1
+
+#ums = [-1,0,3,5,9,12]
+nums = [-1,0,3,5,9,12]
+target=13
+print(search(nums, target))
+
+
+num=[1,2,3,4]
+num="".join(map(str,num))
+print(num)
+
+
+def validPalindrome(s):
+    l=0
+    r=len(s)-1
+    while l<=r:
+        if s[l]!=s[r]:
+            print(s[l+1:r+1])
+            print(s[l+1:r+1][::-1])
+            print(s[l:r])
+            print(s[l:r][::-1])
+            if s[l+1:r+1]==s[l+1:r+1][::-1] or s[l:r]==s[l:r][::-1]:
+                return True 
+            else:
+                return False
+                     
+        l+=1
+        r-=1
+        if r<=l:
+            return True
+     
+    return False
+
+s ="abc"
+print(validPalindrome(s))
+
+
+def minimumLength(s):
+    l = 0
+    r = len(s)-1
+    if len(s)==1:
+        return 1
+    while l<r:
+        while l<len(s)-1 and s[l]==s[r]:
+            l+=1
+        while r>1 and l>=1 and s[l-1]==s[r]:
+            if r<l:
+                return 0
+            r-=1   
+        
+        if s[l]!=s[r] or l==r:
+            return r-l+1
+    return 0
+
+#s="aabaaa"
+        
+#s = "aabccabba"
+#s = "cabaabac"
+#s="bbbbbbbbbbbbbbbbbbb"
+s="abbbbbbbbbbbbbbbbbbba"
+print(minimumLength(s))
+
+
+def waysToSplitArray(nums):
+    s = sum(nums)
+    v=0
+    res=0
+    for i in range(len(nums)-1):
+        v+=nums[i]
+        s-=nums[i]            
+        if v>=s:
+            res+=1
+    return res
+
+nums = [10,4,-8,7]
+print(waysToSplitArray(nums))
+
+
+from collections import Counter
+def relativeSortArray(arr1, arr2):
+    c = Counter(arr1)
+    res=[]
+    res2=[]
+    for i in arr2:
+        while c[i]>0:
+            res.append(i)
+            c[i]-=1
+        del c[i]
+    for i in c:
+        while c[i]>0:
+            res2.append(i)
+            c[i]-=1
+    
+    return res+sorted(res2)
+
+arr1 = [2,3,1,3,2,4,6,7,9,2,19]
+arr2 = [2,1,4,3,9,6]
+
+print(relativeSortArray(arr1, arr2))
+
+"""
+def maxWidthOfVerticalArea(points):
+    points=sorted(points, key=lambda point:point[0])
+    m=float("-inf")
+    for i in range(1,len(points)):
+        ma= points[i][0]- points[i-1][0]
+        m=max(m,ma)
+    return m
+
+points =[[8,7],[9,9],[7,4],[9,7]]
+print(maxWidthOfVerticalArea(points))

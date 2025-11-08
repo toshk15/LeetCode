@@ -1230,7 +1230,7 @@ arr2 = [2,1,4,3,9,6]
 
 print(relativeSortArray(arr1, arr2))
 
-"""
+
 def maxWidthOfVerticalArea(points):
     points=sorted(points, key=lambda point:point[0])
     m=float("-inf")
@@ -1241,3 +1241,288 @@ def maxWidthOfVerticalArea(points):
 
 points =[[8,7],[9,9],[7,4],[9,7]]
 print(maxWidthOfVerticalArea(points))
+
+
+def maxScore(s):
+    zeros=0
+    ones=s.count("1")
+    res=0
+
+    for i in range(len(s)-1):
+        if s[i]=="0":
+            zeros+=1
+        if s[i]=="1":
+            ones-=1
+        res=max(res,ones+zeros)
+    return res
+s = "011101"
+print(maxScore(s))
+
+from collections import Counter
+def permuteUnique(nums):
+    c = Counter(nums)
+    comb=[]
+    res=[]
+
+    def backtrack():
+        if len(comb)==len(nums):
+            res.append(comb[:])                
+            
+        for n in c:
+            if c[n]==0:
+                continue
+            comb.append(n)
+            c[n]-=1
+            backtrack()
+            comb.pop()
+            c[n]+=1
+    backtrack()
+    return res 
+
+nums = [1,1,2]
+print(permuteUnique(nums))
+
+
+def carFleet(target, position, speed):
+    res=zip(position,speed)
+    res=sorted(res,reverse=True)
+    c=1
+    u,v = res[0]
+    t=(target-u)/v
+    
+    for i,j in res:
+        x = (target-i)/j
+        if x<=t:
+            continue
+        else:
+            c+=1
+            t=x
+    return c
+            
+
+target = 12
+position = [10,8,0,5,3]
+speed = [2,4,1,1,3]
+
+print(carFleet(target, position, speed))
+
+
+def imageSmoother(img):
+    row = len(img)
+    col = len(img[0])
+    res=[[0]*col for n in range(row)]
+
+    for i in range(row):
+        for j in range(col):
+            s=0
+            c=0
+            for ii in range(i-1,i+2):
+                for jj in range(j-1,j+2):
+                    if ii<0 or ii==row or jj<0 or jj==col:
+                        continue
+                    s+=img[ii][jj]
+                    c+=1
+            res[i][j]=s//c
+    return res
+
+
+img = [[100,200,100],[200,50,200],[100,200,100]]
+print(imageSmoother(img))
+
+
+if 0<0:
+    print("TRUE")
+else:
+    print("FALSE")
+
+    
+
+def reverseOnlyLetters(s):        
+    s=list(s)
+    l=0
+    r=len(s)-1
+    while l<r:
+        if s[l].isalpha() and s[r].isalpha():
+            s[l],s[r]=s[r],s[l]
+            l+=1
+            r-=1
+        elif not s[l].isalpha():
+            l+=1
+        elif not s[r].isalpha():
+            r-=1
+    return "".join(s)
+            
+s = "ab-cd"
+print(reverseOnlyLetters(s))
+
+
+def letterCombinations(digits):
+    res = []
+    digitToChar = {
+        "2": "abc",
+        "3": "def",
+        "4": "ghi",
+        "5": "jkl",
+        "6": "mno",
+        "7": "qprs",
+        "8": "tuv",
+        "9": "wxyz",
+    }
+
+    def backtrack(i, curStr):
+        if len(curStr) == len(digits):
+            res.append(curStr)
+            return
+        for c in digitToChar[digits[i]]:
+            backtrack(i + 1, curStr + c)
+
+    if digits:
+        backtrack(0, "")
+
+    return res
+
+digits = "23"
+print(letterCombinations(digits))
+
+
+
+def partition(s):
+    part=[]
+    res=[]
+
+    def pali(s,i,x):
+        while i<=x:
+            if s[i]!=s[x]:
+                return False
+            i+=1
+            x-=1
+        return True
+
+    def dfs(i):
+        if i >= len(s):
+            res.append(part[:])
+            return
+            
+        for x in range(i, len(s)):
+            if pali(s,i,x):
+                part.append(s[i:x+1])
+                dfs(x+1)
+                part.pop()
+    dfs(0)
+    return res
+
+s = "aab"
+print(partition(s))
+
+
+from collections import Counter
+def frequencySort(nums):
+    c = Counter(nums)  
+    res=[]
+    res2=[]
+    for n in c:
+        res.append((c[n],-n))
+    res=sorted(res)
+    print(res)
+    for i,j in res:
+        while i>0:
+            res2.append(-j)
+            i-=1
+    return res2  
+
+
+nums = [-1,1,-6,4,5,-6,1,4,1]
+print(frequencySort(nums))
+
+
+
+def splitString(s):
+    def dfs(index,prev):
+        if index==len(s):
+            return True
+        
+        for i in range(index, len(s)):
+            val = int(s[index:i+1])
+            if val+1==prev and dfs(i+1,val):
+                return True
+        return False
+    
+    for start in range(len(s)-1):
+        val=int(s[:start+1])
+        if dfs(start+1,val):
+            return True
+    return False
+s = "050043"
+print(splitString(s))
+
+
+def simplifyPath(path):
+    stack = []
+    path = path.split("/")
+    for p in path:
+        if stack and p == "..": # pop stack if non-empty
+            stack.pop()
+            continue
+
+        if p not in [".", "/", "", ".."]:
+            # Ignore the "p" which are no-op, 
+            # but also ".." in case the stack was in previous condition. Example: "/../"
+            stack.append(p)
+        
+    return "/" + "/".join(stack)
+
+path ="/home///foo/"
+#path = "/.../a/../b/c/../d/./"
+print(simplifyPath(path))
+
+
+
+def search(nums, target):
+    l=0
+    r=len(nums)-1
+
+    while l<r:
+        m=(l+r)//2
+
+        if nums[m]>nums[r]:
+            l=m+1          
+        else:
+            r=m
+    mid=l
+
+    if mid==0:
+        l=0
+        r=len(nums)-1
+    elif target>=nums[0] and target<=nums[mid-1]:
+        l=0
+        r=mid-1
+    else:
+        l=mid
+        r=len(nums)-1
+
+    while l<=r:
+        m=(l+r)//2
+        if nums[m]==target:
+            return m
+        elif target<nums[m]:
+            r=m-1
+        else:
+            l=m+1
+    return -1
+
+nums = [4,5,6,7,0,1,2]
+target = 0
+print(search(nums, target))
+
+"""
+def divideArray(nums,k):
+    nums.sort()
+    res=[]
+    for i in range(0, len(nums), 3):
+        if nums[i+2]-nums[i]<=k:
+            res.append([nums[i], nums[i+1],nums[i+2]])
+    return res
+
+nums = [2,4,2,2,5,2]
+k = 2
+print(divideArray(nums,k))

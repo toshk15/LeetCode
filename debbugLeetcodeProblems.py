@@ -1514,7 +1514,6 @@ nums = [4,5,6,7,0,1,2]
 target = 0
 print(search(nums, target))
 
-"""
 def divideArray(nums,k):
     nums.sort()
     res=[]
@@ -1526,3 +1525,62 @@ def divideArray(nums,k):
 nums = [2,4,2,2,5,2]
 k = 2
 print(divideArray(nums,k))
+
+from collections import Counter
+def findEvenNumbers(digits):
+    dc=Counter(digits)
+    res=[]
+
+    for n in range(100,999,2):
+        n=str(n)
+        nc=Counter(n)
+        F=True
+        for i,j in nc.items():
+            if dc[int(i)]<j:                    
+                F=False
+                break
+        if F:
+            res.append(n)
+    return res
+
+digits = [2,1,3,0]
+print(findEvenNumbers(digits))
+"""
+from collections import defaultdict
+def isValidSudoku(board):
+    rows=defaultdict(set)
+    cols=defaultdict(set)
+    boxes=defaultdict(set)
+
+    for r in range(9):
+        for c in range(9):
+            num = board[r][c]
+            if num == ".":
+                continue
+
+            box_key = (r//3,c//3)
+
+            if num in rows or num in cols or num in boxes[box_key]:
+                return False
+            
+            rows[r].add(num)
+            cols[c].add(num)
+            boxes[box_key].add(num)
+    return True
+
+
+
+board =[[".",".","4",".",".",".","6","3","."],[".",".",".",".",".",".",".",".","."],["5",".",".",".",".",".",".","9","."],[".",".",".","5","6",".",".",".","."],["4",".","3",".",".",".",".",".","1"],[".",".",".","7",".",".",".",".","."],[".",".",".","5",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."]]
+
+print(isValidSudoku(board))
+
+print(1//3)
+
+
+
+
+
+
+
+
+

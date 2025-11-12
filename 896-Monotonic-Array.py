@@ -33,3 +33,21 @@ def isMonotonic(nums):
 """
 
 nums = [6,5,4,4]
+
+
+"""
+Example 1:
+
+Input: nums = [1,2,2,3]
+Output: true
+
+Example 2:
+
+Input: nums = [6,5,4,4]
+Output: true
+
+Example 3:
+
+Input: nums = [1,3,2]
+Output: false
+"""

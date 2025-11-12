@@ -1545,7 +1545,7 @@ def findEvenNumbers(digits):
 
 digits = [2,1,3,0]
 print(findEvenNumbers(digits))
-"""
+
 from collections import defaultdict
 def isValidSudoku(board):
     rows=defaultdict(set)
@@ -1578,9 +1578,173 @@ print(1//3)
 
 
 
+def candy(ratings):
+    res=[1]*len(ratings)
+
+    for i in range(1,len(ratings)):
+        if ratings[i]>ratings[i-1]:
+            res[i]=res[i-1]+1
+    for i in range(len(ratings)-1,-1,-1):
+        if i>0 and ratings[i]<ratings[i-1]:
+            if res[i]<res[i-1]:
+                continue
+            else:
+                res[i-1]=res[i]+1
+    return sum(res)
+
+
+
+ratings = [1,0,2]
+print(candy(ratings))
+
+def insert(intervals, newInterval):
+    intervals.append(newInterval)
+    intervals.sort()
+    start, end = intervals[0]
+    res=[]
+    for s,e in intervals[1:]:
+        if end>=s:
+            start=min(start,s)
+            end=max(end, e)
+        else:
+            res.append([start, end]) 
+            start,end=s,e  
+    res.append([start,end])        
+    return res
+intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]
+newInterval = [4,8]
+print(insert(intervals, newInterval))
+
+
+def maxProfit(prices):
+    maxprofit=0
+    buyprice=prices[0]
+    res=[]
+    for p in prices[1:]:
+        if p<buyprice:
+            buyprice=p
+        else:
+            currprofit = p-buyprice
+            maxprofit=max(currprofit, maxprofit)
+            res.append(maxprofit)
+            maxprofit=0
+            buyprice=p
+    print(res)
+    return sum(res)
+prices = [7,1,5,3,6,4]
+print(maxProfit(prices))
 
 
 
 
 
+def minOPeration(nums):
+    s=[]
+    res=0
+    for n in nums:
+        while s and s[-1]>n:
+            s.pop()
 
+        if n==0:
+            continue
+
+        if not s or s[-1]<n:
+            res+=1
+            s.append(n)
+    return res
+
+#nums = [1,2,1,2,1,2]
+nums = [4,3,4,6]
+print(minOPeration(nums))
+
+
+
+def digitSum(s, k):    
+
+    while len(s)>k:
+        ss=""
+        sf=""
+        i=0      
+
+        while i < len(s):
+            sm=0
+            ss=s[i:i+k]
+            for ii in ss:
+                sm+=int(ii)
+            sf+=str(sm)
+            i+=k
+        s=sf
+    return s
+       
+
+s = "11111222223"
+k = 3
+
+print(digitSum(s, k))
+
+
+
+def findRestaurant(list1,list2):
+    idx=float("inf")
+    res=[]
+    for c in list1:            
+        if c in list2:
+            index1=list1.index(c)
+            index2=list2.index(c)
+            totalidx=index1+index2
+            if totalidx<=idx:
+                idx=totalidx
+                res.append([c,idx])
+    x=min(res)
+    print(x[1])
+  
+    res2=[]
+    for i,j in res:
+        if j==x[1]:
+            res2.append(i)
+    #print(x)
+    return res2
+
+#list1 = ["Shogun","Piatti","Tapioca Express","Burger King","KFC"]
+list1 = ["happy","sad","good"]
+list2 = ["sad","happy","good"]
+
+#list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+print(findRestaurant(list1,list2))
+
+"""
+
+def minDeletionSize(strs):
+    cols = len(strs[0])
+    rows=len(strs)
+    m = [[0]*cols for i in range(rows)]
+    for i in range(len(strs)):
+        for j in range(len(strs[i])):
+            m[i][j]= strs[i][j]
+    print(m)
+   
+    c=0
+    
+    for j in range(cols):
+            i=1
+            while i<rows:
+                print(m[i-1][j])
+                print(m[i][j])
+                if i<rows and m[i-1][j]<m[i][j]:
+                    i+=1
+                else:
+                    c+=1
+                    i+=1
+                    break
+    return c
+   
+
+strs = ["cba","daf","ghi"]
+#strs = ["a","b"]
+#strs = ["zyx","wvu","tsr"]
+print(minDeletionSize(strs))
+
+if "a"<"b":
+     print("yes")
+else:
+     print("no")

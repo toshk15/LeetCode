@@ -7,6 +7,7 @@ class Solution:
             if x in s:
                 t+=s[x]
         return t
+    
 """ 
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:

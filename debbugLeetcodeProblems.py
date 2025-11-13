@@ -1712,7 +1712,7 @@ list2 = ["sad","happy","good"]
 #list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
 print(findRestaurant(list1,list2))
 
-"""
+
 
 def minDeletionSize(strs):
     cols = len(strs[0])
@@ -1748,3 +1748,55 @@ if "a"<"b":
      print("yes")
 else:
      print("no")
+"""
+"""
+def duplicateZeros(arr):
+    n = len(arr)
+    zeros = arr.count(0)
+
+    i=n-1
+    j=n+zeros-1
+
+    while i < j:
+        if j<n:
+            arr[j]=arr[i]
+        
+        if arr[i]==0:
+            j-=1
+            if j<n:
+                arr[j]=0
+        i-=1
+        j-=1
+
+def duplicateZeros(arr):
+    ss=""
+    for i in arr:
+        if i!=0:
+            ss+=str(i)
+        elif i==0:
+            ss+="00"
+    i=0
+    while i<len(arr):
+        print(ss[i])
+        arr[i]=int(ss[i])
+        i+=1
+                
+
+arr = [1,0,2,3,0,4,5,0]
+print(duplicateZeros(arr))
+
+"""
+
+def eraseOverlapIntervals(intervals):
+    intervals.sort()
+    start, end = intervals[0]
+    res=0
+    for start_new, end_new in intervals[1:]:
+        if start_new>=end:
+            end=end_new
+        else:
+            res+=1
+            end=min(end,end_new)
+    return res
+intervals = [[1,2],[2,3],[3,4],[1,3]]
+print(eraseOverlapIntervals(intervals))

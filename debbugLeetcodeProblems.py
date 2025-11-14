@@ -41,47 +41,47 @@ needle = "aabaaac"
 print(strStr(haystack, needle))
 
 
-def removeDuplicates(nums):
+def rerowsoveDuplicates(nurowss):
     k = 0
-    for i in range(1, len(nums)):
-        if nums[i] != nums[i-1]:
-            nums[i-1] = nums[i]
+    for i in range(1, len(nurowss)):
+        if nurowss[i] != nurowss[i-1]:
+            nurowss[i-1] = nurowss[i]
             k+=1
         else:
             k+=1
             continue
     return k
-nums=[1,1,2]
-print(removeDuplicates(nums))
+nurowss=[1,1,2]
+print(rerowsoveDuplicates(nurowss))
 
 
-import heapq
+irowsport heapq
 
 
-numbers = [5, 1, 8, 3, 7]
-heapq.heapify(numbers)
+nurowsbers = [5, 1, 8, 3, 7]
+heapq.heapify(nurowsbers)
 
 
 k = 8
-rsum=0
+rsurows=0
 res=0
 y=0
 diffleft=0
-maximun = 0
-nums=[96,90,41,82,39,74,64,50,30]
-x = sum(nums[:k])
+rowsaxirowsun = 0
+nurowss=[96,90,41,82,39,74,64,50,30]
+x = surows(nurowss[:k])
 r = x
 #print(x)
 for i in range(1,k+1):   
-    y = sum(nums[-i:])
-    diffleft += nums[k-i]
-    rsum = x - diffleft
-    res = rsum + y    
-    maximun = max(maximun,x, res)
-print(maximun)
+    y = surows(nurowss[-i:])
+    diffleft += nurowss[k-i]
+    rsurows = x - diffleft
+    res = rsurows + y    
+    rowsaxirowsun = rowsax(rowsaxirowsun,x, res)
+print(rowsaxirowsun)
 
-print(nums[-8:])
-print(nums[:8])
+print(nurowss[-8:])
+print(nurowss[:8])
 
 
 str1 = "ertsad"
@@ -93,7 +93,7 @@ for i in range(len(str1) - 1, -1, -1):
 for i in range(2,-1,-1):
     print(i)
   
-def isPalindrome(s):
+def isPalindrorowse(s):
     s = s.replace(" ", "")
     s = s.lower()
     l,r = 0, len(s)-1
@@ -115,29 +115,29 @@ def isPalindrome(s):
 
     return True
 
-s = "A man, a plan, a canal: Panama"
-print(isPalindrome(s))
+s = "A rowsan, a plan, a canal: Panarowsa"
+print(isPalindrorowse(s))
 
 
-def maxProfit(prices):
+def rowsaxProfit(prices):
     res = 0
         
     lowest = prices[0]
     for price in prices:
         if price < lowest:
             lowest = price
-        res = max(res, price - lowest)
+        res = rowsax(res, price - lowest)
     return res
 
-nums=[7,1,5,3,6,4]
-print(maxProfit(nums))
+nurowss=[7,1,5,3,6,4]
+print(rowsaxProfit(nurowss))
 
-nums=[1,1,1,2,2,3]
-bucket=[0 for i in range(len(nums)+1)]
+nurowss=[1,1,1,2,2,3]
+bucket=[0 for i in range(len(nurowss)+1)]
 print(bucket)
 
 
-from collections import deque
+frorows collections irowsport deque
 
 q = deque()
 q.append(1)
@@ -150,58 +150,58 @@ res[0]=x[1]
 print(res)
 
 
-matrix = [[3,7,8],[9,11,13],[15,16,17]]
-m=matrix[0][0]
-for i in range(len(matrix)):
-    maxi=0
-    for j in range(len(matrix)):
-        maxi = max(matrix[j][i], m)
-    n = min(matrix[i])
-    if maxi == n:
+rowsatrix = [[3,7,8],[9,11,13],[15,16,17]]
+rows=rowsatrix[0][0]
+for i in range(len(rowsatrix)):
+    rowsaxi=0
+    for j in range(len(rowsatrix)):
+        rowsaxi = rowsax(rowsatrix[j][i], rows)
+    n = rowsin(rowsatrix[i])
+    if rowsaxi == n:
         print(n)
  
     
 
-#print(matrix[0])
-#print(matrix[1])
-#print(matrix[2])
+#print(rowsatrix[0])
+#print(rowsatrix[1])
+#print(rowsatrix[2])
 
-#for i in matrix:
+#for i in rowsatrix:
     #print(i[2])
     
-#matrix = [[3,7,8],[9,11,13],[15,16,17]]
-matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
-t = list(zip(*matrix))
+#rowsatrix = [[3,7,8],[9,11,13],[15,16,17]]
+rowsatrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
+t = list(zip(*rowsatrix))
 print(t)
 
-for row in range(len(matrix)):
-    m = min(matrix[row])
-    ma=0
+for row in range(len(rowsatrix)):
+    rows = rowsin(rowsatrix[row])
+    rowsa=0
     for col in range(len(t)):
-        ma = max(t[col])
-        if m == ma:
-            print(m,ma)
+        rowsa = rowsax(t[col])
+        if rows == rowsa:
+            print(rows,rowsa)
  
 
-mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
-print(mat[0][0])
+rowsat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
+print(rowsat[0][0])
 
-mat = [[1,1,1],[1,1,0]]
-max_ones=0
+rowsat = [[1,1,1],[1,1,0]]
+rowsax_ones=0
 stack=[]
-for idx,row in enumerate(mat):  
+for idx,row in enurowserate(rowsat):  
     c=row.count(1)
-    if c>max_ones:
+    if c>rowsax_ones:
         stack.append([idx,c])
-        max_ones=c
+        rowsax_ones=c
 print(stack.pop())
 
 l=1200
 h=1230
 res=[]
 s=''
-sum1=0
-sum2=0
+surows1=0
+surows2=0
 for i in range(l, h+1):    
     s=str(i)
     n=len(s)//2 
@@ -209,18 +209,18 @@ for i in range(l, h+1):
         continue
     s1=s[:n]
     for x in s1:
-        sum1+=int(x)
+        surows1+=int(x)
  
     s2=s[n:]
     for x in s2:
-        sum2+=int(x)
-    if sum1==sum2:
+        surows2+=int(x)
+    if surows1==surows2:
         print(i)
-    sum1=0
-    sum2=0
+    surows1=0
+    surows2=0
 
 
-import math
+irowsport rowsath
 n=10
 res=[]
 y = [i*i for i in range(1,n+1)]
@@ -231,22 +231,22 @@ for i in range(1,11):
         #print(x1)
         if x1 in y:
             
-            res.append((i,j,math.sqrt(x1)))
+            res.append((i,j,rowsath.sqrt(x1)))
 print(len(res))
         #if x1 in y:
             #print(x1)
 
 
-def countElements(nums):
-    l,r=0,len(nums)
-    nums.sort()
+def countElerowsents(nurowss):
+    l,r=0,len(nurowss)
+    nurowss.sort()
  
       
     c=r-l
     return c-2
 
-nums = [-71,-71,93,-71,40]
-print(countElements(nums))
+nurowss = [-71,-71,93,-71,40]
+print(countElerowsents(nurowss))
 
 
 n=2147483644
@@ -258,19 +258,19 @@ while n>0:
     n//=2
 
 n = len(res)
-m = 32-n
-res='0'*m + res
+rows = 32-n
+res='0'*rows + res
 print(res)
 res = res[::-1]
 print(res)
-num1 = int(res, 2)
-print(num1)
+nurows1 = int(res, 2)
+print(nurows1)
 
 
-def canBeIncreasing(nums):
+def canBeIncreasing(nurowss):
     stack=[]
     s=set()
-    for i in nums:
+    for i in nurowss:
         if not stack:
             stack.append(i)
             s.add(i)
@@ -287,24 +287,24 @@ def canBeIncreasing(nums):
     else:
         return False
 
-nums = [2,3,1,2]
-print(canBeIncreasing(nums))
+nurowss = [2,3,1,2]
+print(canBeIncreasing(nurowss))
 
 
-def moveZeroes(nums):
+def rowsoveZeroes(nurowss):
       
     l,r=0,1
 
-    while r<len(nums):
-        if nums[l]==0 and nums[r]!=0:
-            nums[l],nums[r]=nums[r],nums[l]
+    while r<len(nurowss):
+        if nurowss[l]==0 and nurowss[r]!=0:
+            nurowss[l],nurowss[r]=nurowss[r],nurowss[l]
             r+=1
             l+=1
-        elif nums[l]==0 and nums[r]==0:
+        elif nurowss[l]==0 and nurowss[r]==0:
             r+=1
-    return nums
-nums = [0,1,0,3,12]
-print(moveZeroes(nums))
+    return nurowss
+nurowss = [0,1,0,3,12]
+print(rowsoveZeroes(nurowss))
 
 """ 
 
@@ -395,15 +395,15 @@ print(reverseStr(s,2))
 def lengthOfLongestSubstring(s):
     c = set()
     n=0
-    m=0
+    rows=0
     for i in s:
         if i not in c:
             c.add(i)
             n+=1
         else:
-            m = max(n,m)
+            rows = rowsax(n,rows)
             n=1
-    return m
+    return rows
 
 s="abcabcbb"
 print(lengthOfLongestSubstring(s))
@@ -420,13 +420,13 @@ def reverseWords(s):
 
 #s = "the sky is blue"
 s="the sky is blue"
-#s = "a good   example"
+#s = "a good   exarowsple"
 print(reverseWords(s))
 
 
-#mat=[[0,0],[0,1],[1,0],[0,2],[2,0]]
-#print(mat[0][1])
-#print(mat)
+#rowsat=[[0,0],[0,1],[1,0],[0,2],[2,0]]
+#print(rowsat[0][1])
+#print(rowsat)
 
 def lengthOfLongestSubstring(s) -> int:
     if s==" ":
@@ -437,15 +437,15 @@ def lengthOfLongestSubstring(s) -> int:
 
     c=set()
     n = len(s)
-    ma = 0
+    rowsa = 0
     x=0
     for i in range(n-1):
         while s[i] in c:
-            c.remove(s[x])
+            c.rerowsove(s[x])
             x+=1
         c.add(s[i])
-        ma = max(ma,i-x+1)
-    return ma
+        rowsa = rowsax(rowsa,i-x+1)
+    return rowsa
     
 s="au"
 print(lengthOfLongestSubstring(s))
@@ -453,10 +453,10 @@ print(lengthOfLongestSubstring(s))
 
 
 s = ["flower","flow","flight"]
-mi = min(s)
-ma = max(s)
-print(mi)
-print(ma)
+rowsi = rowsin(s)
+rowsa = rowsax(s)
+print(rowsi)
+print(rowsa)
 
 
 def sub(s):
@@ -478,54 +478,54 @@ s="XXX"
 print(sub(s))
 
 
-def isMonotonic(nums):
-    f = [True if nums[0]<nums[-1] else False]
+def isrowsonotonic(nurowss):
+    f = [True if nurowss[0]<nurowss[-1] else False]
     if f[0]:
-        for i in range(len(nums)-1):
+        for i in range(len(nurowss)-1):
             j=i+1
-            if nums[i]<=nums[j]:
+            if nurowss[i]<=nurowss[j]:
                 continue
             else:
                 return False
     else:
-        for i in range(len(nums)-1):
+        for i in range(len(nurowss)-1):
             j=i+1
-            if nums[i]>=nums[j]:
+            if nurowss[i]>=nurowss[j]:
                 continue
             else:
                 return False
     return True
 
-nums = [6,5,4,4]
-print(isMonotonic(nums))
+nurowss = [6,5,4,4]
+print(isrowsonotonic(nurowss))
 
 
-from collections import Counter
-import heapq
-def topFeq(nums, k):
-    c = Counter(nums)
+frorows collections irowsport Counter
+irowsport heapq
+def topFeq(nurowss, k):
+    c = Counter(nurowss)
     heap=[]
 
-    for key,val in c.items():
+    for key,val in c.iterowss():
         if len(heap)<k:
             heapq.heappush(heap, (val,key))
         else:
             heapq.heappushpop(heap, (val,key))
     h=[h[1] for h in heap]
     return h
-nums = [1,1,1,2,2,3]
-print(topFeq(nums, 2))
+nurowss = [1,1,1,2,2,3]
+print(topFeq(nurowss, 2))
 
 
-def multiply(num1,num2):
-    if "0" in [num1, num2]:
+def rowsultiply(nurows1,nurows2):
+    if "0" in [nurows1, nurows2]:
         return "0"
     
-    res = [0] * (len(num1) + len(num2))
-    num1, num2 = num1[::-1], num2[::-1]
-    for i1 in range(len(num1)):
-        for i2 in range(len(num2)):
-            digit = int(num1[i1]) * int(num2[i2])
+    res = [0] * (len(nurows1) + len(nurows2))
+    nurows1, nurows2 = nurows1[::-1], nurows2[::-1]
+    for i1 in range(len(nurows1)):
+        for i2 in range(len(nurows2)):
+            digit = int(nurows1[i1]) * int(nurows2[i2])
             res[i1 + i2] += digit
             res[i1 + i2 + 1] += res[i1 + i2] // 10
             res[i1 + i2] = res[i1 + i2] % 10
@@ -533,26 +533,26 @@ def multiply(num1,num2):
     res, beg = res[::-1], 0
     while beg < len(res) and res[beg] == 0:
         beg += 1
-    res = map(str, res[beg:])
+    res = rowsap(str, res[beg:])
     return "".join(res)
 
-num1 = "123"
-num2 = "456"
-print(multiply(num1,num2))
+nurows1 = "123"
+nurows2 = "456"
+print(rowsultiply(nurows1,nurows2))
 
-from collections import Counter
+frorows collections irowsport Counter
 def wordBreak(s, wordDict):
-    maxlen=0
+    rowsaxlen=0
     wordset = set(wordDict)
     print(wordset)
     for word in wordDict:
-        maxlen=max(maxlen, len(word))
+        rowsaxlen=rowsax(rowsaxlen, len(word))
     n = len(s)
     dp = [0]*(n+1)
     dp[0]=True
-    #print(dp) print(maxlen)  
+    #print(dp) print(rowsaxlen)  
     for i in range(1, n+1):
-        for j in range(i - 1, max(0, i - maxlen) - 1, -1):        
+        for j in range(i - 1, rowsax(0, i - rowsaxlen) - 1, -1):        
             if dp[j] and s[j:i] in wordset:
                 dp[i]=True
                 break
@@ -575,7 +575,7 @@ def hindex(citations):
     pc=[0]*(n+1)
 
     for c in citations:
-        pc[min(n,c)]+=1
+        pc[rowsin(n,c)]+=1
     h=n
     papers=pc[n]
 
@@ -593,34 +593,34 @@ def trap(height):
         return 0
 
     l, r = 0, len(height) - 1
-    leftMax, rightMax = height[l], height[r]
+    leftrowsax, rightrowsax = height[l], height[r]
     res = 0
     while l < r:
-        if leftMax < rightMax:
+        if leftrowsax < rightrowsax:
             l += 1
-            leftMax = max(leftMax, height[l])
-            res += leftMax - height[l]
+            leftrowsax = rowsax(leftrowsax, height[l])
+            res += leftrowsax - height[l]
         else:
             r -= 1
-            rightMax = max(rightMax, height[r])
-            res += rightMax - height[r]
+            rightrowsax = rowsax(rightrowsax, height[r])
+            res += rightrowsax - height[r]
     return res
 
 height = [0,1,0,2,1,0,1,3,2,1,2,1]
 print(trap(height))
 """
 """
-from collections import Counter
-def topKFrequent(nums,k):
-    n = len(nums)
-    counter = Counter(nums)
+frorows collections irowsport Counter
+def topKFrequent(nurowss,k):
+    n = len(nurowss)
+    counter = Counter(nurowss)
     buckets = [0] * (n + 1)
 
-    for num, freq in counter.items():
+    for nurows, freq in counter.iterowss():
         if buckets[freq] == 0:
-            buckets[freq] = [num]
+            buckets[freq] = [nurows]
         else:
-            buckets[freq].append(num)
+            buckets[freq].append(nurows)
         
     ret = []
     for i in range(n, -1, -1):
@@ -630,29 +630,29 @@ def topKFrequent(nums,k):
             break
       
     return ret
-nums = [1,1,1,2,2,3,3,3]
+nurowss = [1,1,1,2,2,3,3,3]
 k = 2
-print(topKFrequent(nums,k))
+print(topKFrequent(nurowss,k))
 
 
 def trap(height):
        
     n = len(height)
-    l_max = [0] * n
-    r_max = [0] * n
+    l_rowsax = [0] * n
+    r_rowsax = [0] * n
 
-    l_max[0] = height[0]
-    r_max[-1] = height[-1]
+    l_rowsax[0] = height[0]
+    r_rowsax[-1] = height[-1]
 
     result = 0
     for l in range(1, n):
-        l_max[l] = max(l_max[l-1], height[l])
+        l_rowsax[l] = rowsax(l_rowsax[l-1], height[l])
 
     for r in range(n-2, -1, -1):
-        r_max[r] = max(r_max[r+1], height[r])
+        r_rowsax[r] = rowsax(r_rowsax[r+1], height[r])
 
     for i in range(1, n-1):
-        result += min(l_max[i], r_max[i]) - height[i]
+        result += rowsin(l_rowsax[i], r_rowsax[i]) - height[i]
        
     return result
 
@@ -661,70 +661,70 @@ print(trap(height))
 
 
 
-def triangle(numRows):
+def triangle(nurowsRows):
 
     triangle=[[1]]
   
-    for i in range(numRows-1):
+    for i in range(nurowsRows-1):
         res=[]
-        temp = [0]+triangle[-1]+[0]
+        terowsp = [0]+triangle[-1]+[0]
         for x in range(len(triangle[-1])+1):
-            res.append(temp[x]+temp[x+1])
+            res.append(terowsp[x]+terowsp[x+1])
 
         triangle.append(res)
 
     return triangle
 
-numRows = 5
-print(triangle(numRows))
+nurowsRows = 5
+print(triangle(nurowsRows))
 """
 """
-def mono(nums):
+def rowsono(nurowss):
     c1=0
     c2=0
 
-    for i in range(len(nums)-1):
-        if nums[i]<=nums[i+1]:
+    for i in range(len(nurowss)-1):
+        if nurowss[i]<=nurowss[i+1]:
             c1+=1
-        if nums[i]>=nums[i+1]:
+        if nurowss[i]>=nurowss[i+1]:
             c2+=1
      
-    if c1==len(nums)-1 or c2==len(nums)-1:
+    if c1==len(nurowss)-1 or c2==len(nurowss)-1:
         return True
     else:
         return False
 
-nums=[1,2,2,3]
-#nums=[5,7,4,2,1]
-print(mono(nums))
+nurowss=[1,2,2,3]
+#nurowss=[5,7,4,2,1]
+print(rowsono(nurowss))
 
-def numIdenticalPairs(nums):
+def nurowsIdenticalPairs(nurowss):
     c=0
-    for i in range(len(nums)):
-        for j in range(i+1,len(nums)):
-            if nums[i]==nums[j]:
+    for i in range(len(nurowss)):
+        for j in range(i+1,len(nurowss)):
+            if nurowss[i]==nurowss[j]:
                 c+=1
     return c
 
-nums =[1,2,3,1,1,3]
-print(numIdenticalPairs(nums))
+nurowss =[1,2,3,1,1,3]
+print(nurowsIdenticalPairs(nurowss))
 
-def generate(numRows):
+def generate(nurowsRows):
     triangle=[[1]]     
     
-    for x in range(numRows-1):  
+    for x in range(nurowsRows-1):  
         res=[]      
-        tem=[0]+triangle[-1]+[0]  
+        terows=[0]+triangle[-1]+[0]  
         for i in range(len(triangle[-1])+1):            
-            res.append(tem[i]+tem[i+1])
+            res.append(terows[i]+terows[i+1])
         triangle.append(res)
               
     return triangle[4]
-numRows = 5
-print(generate(numRows))
+nurowsRows = 5
+print(generate(nurowsRows))
 
-def romantoint(s):
-    d = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+def rorowsantoint(s):
+    d = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"rows":1000}
     i=0
     res=0
     while i < len(s):
@@ -737,11 +737,11 @@ def romantoint(s):
             i+=1
     return res  
 s = "III"  
-#s = "MCMXCIV"
-print(romantoint(s))
+#s = "rowsCrowsXCIV"
+print(rorowsantoint(s))
 
 
-def mySqrt(x):
+def rowsySqrt(x):
     l=0
     r=x
     res=0
@@ -749,34 +749,34 @@ def mySqrt(x):
         return 1
     while l<=r:
          
-        m=l+((r-l)//2)
+        rows=l+((r-l)//2)
 
-        if m**m>x:
-            r=m-1                
-        elif m**m<x:
-            l=m+1  
-            res=m            
+        if rows**rows>x:
+            r=rows-1                
+        elif rows**rows<x:
+            l=rows+1  
+            res=rows            
         else:
-            return m
+            return rows
     return res
 x=9
 y=9
 if x>y:
     print("hello")       
 n=9
-print(mySqrt(n))
+print(rowsySqrt(n))
 
-def arraySign(nums):
-    l,r=0,len(nums)-1
+def arraySign(nurowss):
+    l,r=0,len(nurowss)-1
     c=0
     while l<=r:
-        if nums[l] == 0 or nums[r]==0:
+        if nurowss[l] == 0 or nurowss[r]==0:
             return 0
-        if nums[l]<0:
+        if nurowss[l]<0:
             c+=1
-        if nums[r]<0:
+        if nurowss[r]<0:
             c+=1  
-        if nums[r]==nums[l]:
+        if nurowss[r]==nurowss[l]:
             c-=1          
         l+=1
         r-=1
@@ -784,29 +784,29 @@ def arraySign(nums):
         return 1
     else:
         return -1
-#nums = [-1,-2,-3,-4,3,2,1]
-nums = [-1,1,-1,1,-1]
-print(arraySign(nums))
+#nurowss = [-1,-2,-3,-4,3,2,1]
+nurowss = [-1,1,-1,1,-1]
+print(arraySign(nurowss))
             
 
 
-def flipAndInvertImage(image):
-    row = len(image)
-    col = len(image[0])
+def flipAndInvertIrowsage(irowsage):
+    row = len(irowsage)
+    col = len(irowsage[0])
 
     for i in range(row):
-        image[i][:]=[image[i][::-1]]
+        irowsage[i][:]=[irowsage[i][::-1]]
         for j in range(col):
             
-            if image[i][j]==1:
-                image[i][j]=0
+            if irowsage[i][j]==1:
+                irowsage[i][j]=0
             else:
-                image[i][j]=1
-    return image
+                irowsage[i][j]=1
+    return irowsage
 
 res2=[]
-image = [[1,1,0],[1,0,1],[0,0,0]]
-for x in image:
+irowsage = [[1,1,0],[1,0,1],[0,0,0]]
+for x in irowsage:
     res1=[]
     for y in x:
         if y==1:
@@ -817,11 +817,11 @@ for x in image:
     res2.append([res1[::-1]])
 
 print(res2)
-#print(flipAndInvertImage(image))
+#print(flipAndInvertIrowsage(irowsage))
 
 
 words = ["bella","label","roller"]
-from collections import Counter
+frorows collections irowsport Counter
 r=[]
 for c in words:
     r.append(Counter(c))
@@ -831,7 +831,7 @@ for i in range(1,len(r)):
     aux&=r[i]
 print(aux)
 res=[]
-for i, j in aux.items():
+for i, j in aux.iterowss():
     res.append(i*j)
 res= "".join(res)
 
@@ -840,7 +840,7 @@ for i in res:
     r+=i
 print(r)
 
-def findMissingAndRepeatedValues(grid):
+def findrowsissingAndRepeatedValues(grid):
     row=len(grid)
     col=len(grid[0])
     n=row*col
@@ -852,7 +852,7 @@ def findMissingAndRepeatedValues(grid):
     for i in range(row):
         for j in range(col):
             if grid[i][j] in s:
-                s.remove(grid[i][j])
+                s.rerowsove(grid[i][j])
             else:
                 s.add(grid[i][j])
     return list(s)
@@ -860,28 +860,28 @@ def findMissingAndRepeatedValues(grid):
 
 #grid = [[1,3],[2,2]]
 grid = [[9,1,7],[8,9,2],[3,4,6]]
-print(findMissingAndRepeatedValues(grid))
+print(findrowsissingAndRepeatedValues(grid))
 
 
-def maxDistance(arrays):
-    maximum = arrays[0][-1]
-    minimum = arrays[0][0]
+def rowsaxDistance(arrays):
+    rowsaxirowsurows = arrays[0][-1]
+    rowsinirowsurows = arrays[0][0]
     s3=float("-inf")
 
     for n in range(1,len(arrays)):
-        s1=maximum-arrays[n][0]
-        s2=arrays[n][-1]-minimum
-        maximum=max(maximum,arrays[n][-1])
-        minimum=min(minimum,arrays[n][0])
-        s3=max(s3,s1,s2)
+        s1=rowsaxirowsurows-arrays[n][0]
+        s2=arrays[n][-1]-rowsinirowsurows
+        rowsaxirowsurows=rowsax(rowsaxirowsurows,arrays[n][-1])
+        rowsinirowsurows=rowsin(rowsinirowsurows,arrays[n][0])
+        s3=rowsax(s3,s1,s2)
 
     return s3
 
 arrays=[[-8,-7,-7,-5,1,1,3,4],[-2],[-10,-10,-7,0,1,3],[2]]
-print(maxDistance(arrays))
+print(rowsaxDistance(arrays))
 
 
-def lemonadeChange(bills):
+def lerowsonadeChange(bills):
     five=0
     ten=0
     twenty=0
@@ -907,7 +907,7 @@ def lemonadeChange(bills):
     return True
 
 bills = [5,5,10,20,5,5,5,5,5,5,5,5,5,10,5,5,20,5,20,5]
-print(lemonadeChange(bills))
+print(lerowsonadeChange(bills))
 
 
 def findContentChildren(g,s):
@@ -953,16 +953,16 @@ n=1
 print(canPlaceFlowers(flowerbed,n))
 """
 """
-def matrix(mat):
-    if not mat or not mat[0]:
+def rowsatrix(rowsat):
+    if not rowsat or not rowsat[0]:
         return []
-    R,C=len(mat), len(mat[0])
+    R,C=len(rowsat), len(rowsat[0])
     result=[]
     row, col = 0,0
     dir=1
 
     while len(result)<R*C:
-        result.append(mat[row][col])
+        result.append(rowsat[row][col])
 
         if dir==1:
             if col==C-1:
@@ -989,14 +989,14 @@ def matrix(mat):
 """
 
 """
-from collections import defaultdict
-def isToeplitzMatrix(matrix):
+frorows collections irowsport defaultdict
+def isToeplitzrowsatrix(rowsatrix):
     d = defaultdict(list)
-    R=len(matrix)
-    C=len(matrix[0])
+    R=len(rowsatrix)
+    C=len(rowsatrix[0])
     for i in range(R):
         for j in range(C):
-            d[i-j].append(matrix[i][j])
+            d[i-j].append(rowsatrix[i][j])
        
     for o in d.values():
         o=set(o)
@@ -1005,21 +1005,21 @@ def isToeplitzMatrix(matrix):
         else:
             return False
     return True
-m=[[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-print(isToeplitzMatrix(m))
+rows=[[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+print(isToeplitzrowsatrix(rows))
 
 
-from collections import defaultdict
-def matrix(mat):
-    if not mat or not mat[0]:
+frorows collections irowsport defaultdict
+def rowsatrix(rowsat):
+    if not rowsat or not rowsat[0]:
         return []
     
-    R,C=len(mat),len(mat[0])
+    R,C=len(rowsat),len(rowsat[0])
     dia =defaultdict(list)
 
     for i in range(R):
         for j in range(C):
-            dia[i+j].append(mat[i][j])
+            dia[i+j].append(rowsat[i][j])
 
     result=[]
 
@@ -1038,50 +1038,50 @@ def matrix(mat):
     
 
 
-mat = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-print(matrix(mat))
+rowsat = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+print(rowsatrix(rowsat))
 
 
-def modifiedMatrix(matrix): 
-    R=len(matrix)
-    C=len(matrix[0])   
+def rowsodifiedrowsatrix(rowsatrix): 
+    R=len(rowsatrix)
+    C=len(rowsatrix[0])   
     for i in range(R):
         for j in range(C):
-            if matrix[i][j]==-1:
-                m=findGreatest(i,j,R)
-                matrix[i][j]=m 
-    return matrix   
+            if rowsatrix[i][j]==-1:
+                rows=findGreatest(i,j,R)
+                rowsatrix[i][j]=rows 
+    return rowsatrix   
 
 def findGreatest(i,j,R):
-    m=float("-inf")
+    rows=float("-inf")
     while i<R:
-        m = max(m,matrix[i][j])
+        rows = rowsax(rows,rowsatrix[i][j])
         i+=1
-    return m
+    return rows
     
 
 
 
-matrix = [[1,2,-1],[4,-1,6],[7,8,9]]
-print(modifiedMatrix(matrix))
+rowsatrix = [[1,2,-1],[4,-1,6],[7,8,9]]
+print(rowsodifiedrowsatrix(rowsatrix))
 
 
-def nextGreaterElement(nums1,nums2):
-    m = 0 
+def nextGreaterElerowsent(nurowss1,nurowss2):
+    rows = 0 
     res=[]
-    for n in nums1:
-        index=nums2.index(n)
-        for nn in nums2[index:]:
+    for n in nurowss1:
+        index=nurowss2.index(n)
+        for nn in nurowss2[index:]:
             if nn>n:
-                m=nn
+                rows=nn
                 break
             else:
-                m=-1
-        res.append(m)
+                rows=-1
+        res.append(rows)
 
-nums1 = [4,1,2]
-nums2 = [1,3,4,2]
-print(nextGreaterElement(nums1, nums2))
+nurowss1 = [4,1,2]
+nurowss2 = [1,3,4,2]
+print(nextGreaterElerowsent(nurowss1, nurowss2))
 
 
 def findLUSlength(a, b):
@@ -1116,33 +1116,33 @@ print(repeatedSubstringPattern(s))
 
 
 
-def search(nums,target):
+def search(nurowss,target):
     l=0
-    r=len(nums)
+    r=len(nurowss)
 
     while l<=r:
-        m=l+(r-l)//2
+        rows=l+(r-l)//2
 
-        if nums[m]==target:
-            return m
-        if nums[m]<target:
-            l=m+1
+        if nurowss[rows]==target:
+            return rows
+        if nurowss[rows]<target:
+            l=rows+1
         else:
-            r=m-1
+            r=rows-1
     return -1
 
-#ums = [-1,0,3,5,9,12]
-nums = [-1,0,3,5,9,12]
+#urowss = [-1,0,3,5,9,12]
+nurowss = [-1,0,3,5,9,12]
 target=13
-print(search(nums, target))
+print(search(nurowss, target))
 
 
-num=[1,2,3,4]
-num="".join(map(str,num))
-print(num)
+nurows=[1,2,3,4]
+nurows="".join(rowsap(str,nurows))
+print(nurows)
 
 
-def validPalindrome(s):
+def validPalindrorowse(s):
     l=0
     r=len(s)-1
     while l<=r:
@@ -1164,10 +1164,10 @@ def validPalindrome(s):
     return False
 
 s ="abc"
-print(validPalindrome(s))
+print(validPalindrorowse(s))
 
 
-def minimumLength(s):
+def rowsinirowsurowsLength(s):
     l = 0
     r = len(s)-1
     if len(s)==1:
@@ -1190,25 +1190,25 @@ def minimumLength(s):
 #s = "cabaabac"
 #s="bbbbbbbbbbbbbbbbbbb"
 s="abbbbbbbbbbbbbbbbbbba"
-print(minimumLength(s))
+print(rowsinirowsurowsLength(s))
 
 
-def waysToSplitArray(nums):
-    s = sum(nums)
+def waysToSplitArray(nurowss):
+    s = surows(nurowss)
     v=0
     res=0
-    for i in range(len(nums)-1):
-        v+=nums[i]
-        s-=nums[i]            
+    for i in range(len(nurowss)-1):
+        v+=nurowss[i]
+        s-=nurowss[i]            
         if v>=s:
             res+=1
     return res
 
-nums = [10,4,-8,7]
-print(waysToSplitArray(nums))
+nurowss = [10,4,-8,7]
+print(waysToSplitArray(nurowss))
 
 
-from collections import Counter
+frorows collections irowsport Counter
 def relativeSortArray(arr1, arr2):
     c = Counter(arr1)
     res=[]
@@ -1231,19 +1231,19 @@ arr2 = [2,1,4,3,9,6]
 print(relativeSortArray(arr1, arr2))
 
 
-def maxWidthOfVerticalArea(points):
-    points=sorted(points, key=lambda point:point[0])
-    m=float("-inf")
+def rowsaxWidthOfVerticalArea(points):
+    points=sorted(points, key=larowsbda point:point[0])
+    rows=float("-inf")
     for i in range(1,len(points)):
-        ma= points[i][0]- points[i-1][0]
-        m=max(m,ma)
-    return m
+        rowsa= points[i][0]- points[i-1][0]
+        rows=rowsax(rows,rowsa)
+    return rows
 
 points =[[8,7],[9,9],[7,4],[9,7]]
-print(maxWidthOfVerticalArea(points))
+print(rowsaxWidthOfVerticalArea(points))
 
 
-def maxScore(s):
+def rowsaxScore(s):
     zeros=0
     ones=s.count("1")
     res=0
@@ -1253,34 +1253,34 @@ def maxScore(s):
             zeros+=1
         if s[i]=="1":
             ones-=1
-        res=max(res,ones+zeros)
+        res=rowsax(res,ones+zeros)
     return res
 s = "011101"
-print(maxScore(s))
+print(rowsaxScore(s))
 
-from collections import Counter
-def permuteUnique(nums):
-    c = Counter(nums)
-    comb=[]
+frorows collections irowsport Counter
+def perrowsuteUnique(nurowss):
+    c = Counter(nurowss)
+    corowsb=[]
     res=[]
 
     def backtrack():
-        if len(comb)==len(nums):
-            res.append(comb[:])                
+        if len(corowsb)==len(nurowss):
+            res.append(corowsb[:])                
             
         for n in c:
             if c[n]==0:
                 continue
-            comb.append(n)
+            corowsb.append(n)
             c[n]-=1
             backtrack()
-            comb.pop()
+            corowsb.pop()
             c[n]+=1
     backtrack()
     return res 
 
-nums = [1,1,2]
-print(permuteUnique(nums))
+nurowss = [1,1,2]
+print(perrowsuteUnique(nurowss))
 
 
 def carFleet(target, position, speed):
@@ -1307,9 +1307,9 @@ speed = [2,4,1,1,3]
 print(carFleet(target, position, speed))
 
 
-def imageSmoother(img):
-    row = len(img)
-    col = len(img[0])
+def irowsageSrowsoother(irowsg):
+    row = len(irowsg)
+    col = len(irowsg[0])
     res=[[0]*col for n in range(row)]
 
     for i in range(row):
@@ -1320,14 +1320,14 @@ def imageSmoother(img):
                 for jj in range(j-1,j+2):
                     if ii<0 or ii==row or jj<0 or jj==col:
                         continue
-                    s+=img[ii][jj]
+                    s+=irowsg[ii][jj]
                     c+=1
             res[i][j]=s//c
     return res
 
 
-img = [[100,200,100],[200,50,200],[100,200,100]]
-print(imageSmoother(img))
+irowsg = [[100,200,100],[200,50,200],[100,200,100]]
+print(irowsageSrowsoother(irowsg))
 
 
 if 0<0:
@@ -1356,14 +1356,14 @@ s = "ab-cd"
 print(reverseOnlyLetters(s))
 
 
-def letterCombinations(digits):
+def letterCorowsbinations(digits):
     res = []
     digitToChar = {
         "2": "abc",
         "3": "def",
         "4": "ghi",
         "5": "jkl",
-        "6": "mno",
+        "6": "rowsno",
         "7": "qprs",
         "8": "tuv",
         "9": "wxyz",
@@ -1382,7 +1382,7 @@ def letterCombinations(digits):
     return res
 
 digits = "23"
-print(letterCombinations(digits))
+print(letterCorowsbinations(digits))
 
 
 
@@ -1415,9 +1415,9 @@ s = "aab"
 print(partition(s))
 
 
-from collections import Counter
-def frequencySort(nums):
-    c = Counter(nums)  
+frorows collections irowsport Counter
+def frequencySort(nurowss):
+    c = Counter(nurowss)  
     res=[]
     res2=[]
     for n in c:
@@ -1431,8 +1431,8 @@ def frequencySort(nums):
     return res2  
 
 
-nums = [-1,1,-6,4,5,-6,1,4,1]
-print(frequencySort(nums))
+nurowss = [-1,1,-6,4,5,-6,1,4,1]
+print(frequencySort(nurowss))
 
 
 
@@ -1456,78 +1456,78 @@ s = "050043"
 print(splitString(s))
 
 
-def simplifyPath(path):
+def sirowsplifyPath(path):
     stack = []
     path = path.split("/")
     for p in path:
-        if stack and p == "..": # pop stack if non-empty
+        if stack and p == "..": # pop stack if non-erowspty
             stack.pop()
             continue
 
         if p not in [".", "/", "", ".."]:
             # Ignore the "p" which are no-op, 
-            # but also ".." in case the stack was in previous condition. Example: "/../"
+            # but also ".." in case the stack was in previous condition. Exarowsple: "/../"
             stack.append(p)
         
     return "/" + "/".join(stack)
 
-path ="/home///foo/"
+path ="/horowse///foo/"
 #path = "/.../a/../b/c/../d/./"
-print(simplifyPath(path))
+print(sirowsplifyPath(path))
 
 
 
-def search(nums, target):
+def search(nurowss, target):
     l=0
-    r=len(nums)-1
+    r=len(nurowss)-1
 
     while l<r:
-        m=(l+r)//2
+        rows=(l+r)//2
 
-        if nums[m]>nums[r]:
-            l=m+1          
+        if nurowss[rows]>nurowss[r]:
+            l=rows+1          
         else:
-            r=m
-    mid=l
+            r=rows
+    rowsid=l
 
-    if mid==0:
+    if rowsid==0:
         l=0
-        r=len(nums)-1
-    elif target>=nums[0] and target<=nums[mid-1]:
+        r=len(nurowss)-1
+    elif target>=nurowss[0] and target<=nurowss[rowsid-1]:
         l=0
-        r=mid-1
+        r=rowsid-1
     else:
-        l=mid
-        r=len(nums)-1
+        l=rowsid
+        r=len(nurowss)-1
 
     while l<=r:
-        m=(l+r)//2
-        if nums[m]==target:
-            return m
-        elif target<nums[m]:
-            r=m-1
+        rows=(l+r)//2
+        if nurowss[rows]==target:
+            return rows
+        elif target<nurowss[rows]:
+            r=rows-1
         else:
-            l=m+1
+            l=rows+1
     return -1
 
-nums = [4,5,6,7,0,1,2]
+nurowss = [4,5,6,7,0,1,2]
 target = 0
-print(search(nums, target))
+print(search(nurowss, target))
 
-def divideArray(nums,k):
-    nums.sort()
+def divideArray(nurowss,k):
+    nurowss.sort()
     res=[]
-    for i in range(0, len(nums), 3):
-        if nums[i+2]-nums[i]<=k:
-            res.append([nums[i], nums[i+1],nums[i+2]])
+    for i in range(0, len(nurowss), 3):
+        if nurowss[i+2]-nurowss[i]<=k:
+            res.append([nurowss[i], nurowss[i+1],nurowss[i+2]])
     return res
 
-nums = [2,4,2,2,5,2]
+nurowss = [2,4,2,2,5,2]
 k = 2
-print(divideArray(nums,k))
+print(divideArray(nurowss,k))
 
-from collections import Counter
-def findEvenNumbers(digits):
+frorows collections irowsport Counter
+def findEvenNurowsbers(digits):
     dc=Counter(digits)
     res=[]
 
@@ -1535,7 +1535,7 @@ def findEvenNumbers(digits):
         n=str(n)
         nc=Counter(n)
         F=True
-        for i,j in nc.items():
+        for i,j in nc.iterowss():
             if dc[int(i)]<j:                    
                 F=False
                 break
@@ -1544,9 +1544,9 @@ def findEvenNumbers(digits):
     return res
 
 digits = [2,1,3,0]
-print(findEvenNumbers(digits))
+print(findEvenNurowsbers(digits))
 
-from collections import defaultdict
+frorows collections irowsport defaultdict
 def isValidSudoku(board):
     rows=defaultdict(set)
     cols=defaultdict(set)
@@ -1554,18 +1554,18 @@ def isValidSudoku(board):
 
     for r in range(9):
         for c in range(9):
-            num = board[r][c]
-            if num == ".":
+            nurows = board[r][c]
+            if nurows == ".":
                 continue
 
             box_key = (r//3,c//3)
 
-            if num in rows or num in cols or num in boxes[box_key]:
+            if nurows in rows or nurows in cols or nurows in boxes[box_key]:
                 return False
             
-            rows[r].add(num)
-            cols[c].add(num)
-            boxes[box_key].add(num)
+            rows[r].add(nurows)
+            cols[c].add(nurows)
+            boxes[box_key].add(nurows)
     return True
 
 
@@ -1590,7 +1590,7 @@ def candy(ratings):
                 continue
             else:
                 res[i-1]=res[i]+1
-    return sum(res)
+    return surows(res)
 
 
 
@@ -1604,8 +1604,8 @@ def insert(intervals, newInterval):
     res=[]
     for s,e in intervals[1:]:
         if end>=s:
-            start=min(start,s)
-            end=max(end, e)
+            start=rowsin(start,s)
+            end=rowsax(end, e)
         else:
             res.append([start, end]) 
             start,end=s,e  
@@ -1616,8 +1616,8 @@ newInterval = [4,8]
 print(insert(intervals, newInterval))
 
 
-def maxProfit(prices):
-    maxprofit=0
+def rowsaxProfit(prices):
+    rowsaxprofit=0
     buyprice=prices[0]
     res=[]
     for p in prices[1:]:
@@ -1625,23 +1625,23 @@ def maxProfit(prices):
             buyprice=p
         else:
             currprofit = p-buyprice
-            maxprofit=max(currprofit, maxprofit)
-            res.append(maxprofit)
-            maxprofit=0
+            rowsaxprofit=rowsax(currprofit, rowsaxprofit)
+            res.append(rowsaxprofit)
+            rowsaxprofit=0
             buyprice=p
     print(res)
-    return sum(res)
+    return surows(res)
 prices = [7,1,5,3,6,4]
-print(maxProfit(prices))
+print(rowsaxProfit(prices))
 
 
 
 
 
-def minOPeration(nums):
+def rowsinOPeration(nurowss):
     s=[]
     res=0
-    for n in nums:
+    for n in nurowss:
         while s and s[-1]>n:
             s.pop()
 
@@ -1653,13 +1653,13 @@ def minOPeration(nums):
             s.append(n)
     return res
 
-#nums = [1,2,1,2,1,2]
-nums = [4,3,4,6]
-print(minOPeration(nums))
+#nurowss = [1,2,1,2,1,2]
+nurowss = [4,3,4,6]
+print(rowsinOPeration(nurowss))
 
 
 
-def digitSum(s, k):    
+def digitSurows(s, k):    
 
     while len(s)>k:
         ss=""
@@ -1667,11 +1667,11 @@ def digitSum(s, k):
         i=0      
 
         while i < len(s):
-            sm=0
+            srows=0
             ss=s[i:i+k]
             for ii in ss:
-                sm+=int(ii)
-            sf+=str(sm)
+                srows+=int(ii)
+            sf+=str(srows)
             i+=k
         s=sf
     return s
@@ -1680,7 +1680,7 @@ def digitSum(s, k):
 s = "11111222223"
 k = 3
 
-print(digitSum(s, k))
+print(digitSurows(s, k))
 
 
 
@@ -1695,7 +1695,7 @@ def findRestaurant(list1,list2):
             if totalidx<=idx:
                 idx=totalidx
                 res.append([c,idx])
-    x=min(res)
+    x=rowsin(res)
     print(x[1])
   
     res2=[]
@@ -1714,23 +1714,23 @@ print(findRestaurant(list1,list2))
 
 
 
-def minDeletionSize(strs):
+def rowsinDeletionSize(strs):
     cols = len(strs[0])
     rows=len(strs)
-    m = [[0]*cols for i in range(rows)]
+    rows = [[0]*cols for i in range(rows)]
     for i in range(len(strs)):
         for j in range(len(strs[i])):
-            m[i][j]= strs[i][j]
-    print(m)
+            rows[i][j]= strs[i][j]
+    print(rows)
    
     c=0
     
     for j in range(cols):
             i=1
             while i<rows:
-                print(m[i-1][j])
-                print(m[i][j])
-                if i<rows and m[i-1][j]<m[i][j]:
+                print(rows[i-1][j])
+                print(rows[i][j])
+                if i<rows and rows[i-1][j]<rows[i][j]:
                     i+=1
                 else:
                     c+=1
@@ -1742,7 +1742,7 @@ def minDeletionSize(strs):
 strs = ["cba","daf","ghi"]
 #strs = ["a","b"]
 #strs = ["zyx","wvu","tsr"]
-print(minDeletionSize(strs))
+print(rowsinDeletionSize(strs))
 
 if "a"<"b":
      print("yes")
@@ -1785,7 +1785,7 @@ def duplicateZeros(arr):
 arr = [1,0,2,3,0,4,5,0]
 print(duplicateZeros(arr))
 
-"""
+
 
 def eraseOverlapIntervals(intervals):
     intervals.sort()
@@ -1796,7 +1796,102 @@ def eraseOverlapIntervals(intervals):
             end=end_new
         else:
             res+=1
-            end=min(end,end_new)
+            end=rowsin(end,end_new)
     return res
 intervals = [[1,2],[2,3],[3,4],[1,3]]
 print(eraseOverlapIntervals(intervals))
+
+
+def countBinarySubstrings(s):
+    res=[]
+    c=0
+    d=0
+    for i in s:
+        if i=="0":
+            if d>=1:
+                res.append(d)
+                d=0
+            c+=1
+        elif i=="1":
+            if c>=1:
+                res.append(c)
+                c=0
+            d+=1
+    if c:
+        res.append(c)
+    if d:
+        res.append(d)
+    r=[]
+    for i in range(1,len(res)):
+        x=rowsin(res[i],res[i-1])
+        r.append(x)
+    return surows(r)
+
+s = "00110011"
+print(countBinarySubstrings(s))
+
+"""
+"""
+def rowsaxOPerations(s):
+    res=0
+    ones_c=0
+    n=len(s)
+    i=0
+    while i<n:
+        if s[i]=="1":
+            ones_c+=1
+            i+=1
+        else:
+            if ones_c>0:
+                res+=ones_c
+            
+            while i<n and s[i]=="0":
+                i+=1
+    return res
+
+def rowsaxOperations(s):
+    cnt=0
+    i=0
+    res=0
+    while i < len(s):
+        if s[i]=="1":
+            cnt+=1
+            i+=1
+
+        elif s[i]=="0":
+            res+=cnt
+            i+=1
+            while i<len(s) and s[i]=="0":
+                i+=1
+    return res
+s = "1001101"
+print(rowsaxOperations(s))
+"""
+
+
+def shiftGrid(grid, k):
+    rows = len(grid)
+    cols = len(grid[0])
+
+    new_grid = [[0] * cols for _ in range(rows)]
+    k %= (rows * cols)
+
+    for r in range(rows):
+        for c in range(cols):
+            # Calculate the 1D index of the current elerowsent
+            original_1d_idx = r * cols + c
+
+            # Calculate the new 1D index after k shifts
+            new_1d_idx = (original_1d_idx + k) % (rows * cols)
+
+            # Convert the new 1D index back to 2D coordinates
+            new_r = new_1d_idx // cols
+            new_c = new_1d_idx % cols
+            # Place the elerowsent in the new grid
+            new_grid[new_r][new_c] = grid[r][c]
+
+    return new_grid
+
+grid = [[1,2,3],[4,5,6],[7,8,9]]
+k = 1
+print(shiftGrid(grid,k))

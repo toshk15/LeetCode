@@ -61,3 +61,22 @@ head.next.next.next.next.next = ListNode(9)
 
 newhead=head.sortList(head)
 head.print_linked_list(newhead)
+
+
+"""
+Example 1:
+
+Input: head = [4,2,1,3]
+Output: [1,2,3,4]
+
+Example 2:
+
+Input: head = [-1,5,3,4,0]
+Output: [-1,0,3,4,5]
+
+Example 3:
+
+Input: head = []
+Output: []
+
+"""

@@ -32,3 +32,19 @@ def isPossibleToSplit(nums):
 
 nums = [6,1,3,1,1,8,9,2]
 print(isPossibleToSplit(nums))
+
+
+"""
+Example 1:
+
+Input: nums = [1,1,2,2,3,4]
+Output: true
+Explanation: One of the possible ways to split nums is nums1 = [1,2,3] and nums2 = [1,2,4].
+
+Example 2:
+
+Input: nums = [1,1,1,1]
+Output: false
+Explanation: The only possible way to split nums is nums1 = [1,1] and nums2 = [1,1]. Both nums1 and nums2 do not contain distinct elements. Therefore, we return false.
+
+"""

@@ -1868,30 +1868,27 @@ s = "1001101"
 print(rowsaxOperations(s))
 """
 
-
-def shiftGrid(grid, k):
-    rows = len(grid)
-    cols = len(grid[0])
-
-    new_grid = [[0] * cols for _ in range(rows)]
-    k %= (rows * cols)
-
-    for r in range(rows):
-        for c in range(cols):
-            # Calculate the 1D index of the current elerowsent
-            original_1d_idx = r * cols + c
-
-            # Calculate the new 1D index after k shifts
-            new_1d_idx = (original_1d_idx + k) % (rows * cols)
-
-            # Convert the new 1D index back to 2D coordinates
-            new_r = new_1d_idx // cols
-            new_c = new_1d_idx % cols
-            # Place the elerowsent in the new grid
-            new_grid[new_r][new_c] = grid[r][c]
-
-    return new_grid
-
-grid = [[1,2,3],[4,5,6],[7,8,9]]
-k = 1
-print(shiftGrid(grid,k))
+def countAsterisks(s):
+    ss=""
+    su=0
+    for i in s:
+        if i=="|" or i=="*":
+            ss+=i
+    l=0
+    a=0
+    for ii in ss:
+        if ii=="|":
+            l+=1
+        if ii=="*":
+            a+=1
+        if l==2:
+            l=0
+            a=0
+        if l==0:
+            su+=a
+            a=0
+    return su
+#s = "yo|uar|e**|b|e***au|tifu|l"
+s = "iamprogrammer"
+#s = "l|*e*et|c**o|*de|"
+print(countAsterisks(s))

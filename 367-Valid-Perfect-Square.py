@@ -1,3 +1,4 @@
+"""
 def isPerfect(num):
 
     for i in range(1, num+1):
@@ -5,7 +6,8 @@ def isPerfect(num):
             return True
         if i*i > num:
             return False
-        
+
+"""       
 def isPerfect(num):
 
     l, r = 0, num
@@ -22,3 +24,18 @@ def isPerfect(num):
 
 x = 64
 print(isPerfect(x))
+
+"""
+Example 1:
+
+Input: num = 16
+Output: true
+Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+
+Example 2:
+
+Input: num = 14
+Output: false
+Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+
+"""

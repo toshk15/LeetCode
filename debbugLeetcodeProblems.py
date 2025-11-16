@@ -1866,7 +1866,7 @@ def rowsaxOperations(s):
     return res
 s = "1001101"
 print(rowsaxOperations(s))
-"""
+
 
 def countAsterisks(s):
     ss=""
@@ -1892,3 +1892,38 @@ def countAsterisks(s):
 s = "iamprogrammer"
 #s = "l|*e*et|c**o|*de|"
 print(countAsterisks(s))
+
+
+
+def addDigits(num):
+    su=0
+    n = str(num)
+    while len(n)!=1:
+        su=0                    
+        i=0            
+        while i<len(n):
+            su+=int(n[i])
+            i+=1
+        n=str(su)                
+    return su
+
+num = 38
+print(addDigits(num))
+
+
+def countBits(n):
+    res=[]
+    for i in range(n+1):
+        
+        x=bin(i)
+        x=x[2:]
+        c = x.count("1")
+        res.append(c)
+    return res
+n = 2
+print(countBits(n))
+
+
+"""
+
+

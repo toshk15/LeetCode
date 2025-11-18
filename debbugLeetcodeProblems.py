@@ -1924,6 +1924,65 @@ n = 2
 print(countBits(n))
 
 
+
+def secondHighest(s):
+        res=set()
+        for i in s:
+            if i.isnumeric():                
+                res.add(int(i))
+        res = sorted(list(res))
+        if res[-2]:
+             return res[-2]
+        else:
+             return -1
+
+s = "dfa12321afd"
+print(secondHighest(s))
+
+
+
+def checkIfExist(arr):
+    s=set()    
+    for n in range(len(arr)):
+        for nn in range(n+1,len(arr)):               
+            if 2*arr[n] == arr[nn] or arr[n]==arr[nn]*2:
+                return True            
+            
+            
+    return False
+#arr = [10,2,5,3]
+#arr=arr = [0,-2,2]
+#arr = [3,1,7,11]
+#arr=[7,1,14,11]
+arr = [-10,12,-20,-8,15]
+print(checkIfExist(arr))
+
+
+def largestOddNumber(num):
+    maxOdd=float("-inf")
+    for i in range(len(num)-1,-1,-1):
+        if int(num[i])%2==0:
+            continue
+        if int(num[i])%2==1:
+            maxOdd=max(maxOdd,int(num[i]))
+        if int(num[:i+1])%2==1:
+            maxOdd=max(maxOdd,int(num[:i+1]))
+    return "" if str(maxOdd) =="-inf" else str(maxOdd)
+num ="10133890"
+print(largestOddNumber(num))
 """
 
+def rotate(matrix):
+    n = len(matrix)
 
+    for i in range(n):
+        for j in range(i + 1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            print(matrix[i][j])
+            print(matrix[j][i])
+
+        for i in range(n):
+            matrix[i].reverse()
+    print(matrix)
+
+print(rotate([[1,2],[3,4]]))

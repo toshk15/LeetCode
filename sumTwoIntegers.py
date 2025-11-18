@@ -1,12 +1,13 @@
 def getSum(a, b):
-    while(b != 0):
-        tmp = (a&b) << 1
-        a = a ^ b
-        b = tmp
-    return a
-
-a = 3
-b = 11
+    a=bin(a)
+    a=a[2:]
+    b=bin(b)
+    b=b[2:]
+    c = a & b
+    return int(c)
+ 
+a = -1
+b = 1
 
 print(getSum(a, b))
 

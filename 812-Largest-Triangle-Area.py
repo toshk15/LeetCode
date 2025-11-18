@@ -10,3 +10,17 @@ def largestTriangleArea(self, points: List[List[int]]) -> float:
                     a = abs(x1*(y2-y3)+ x2*(y3-y1)+x3*(y1-y2))/2
                     max_area=max(max_area,a)
         return max_area
+
+"""
+Example 1:
+
+Input: points = [[0,0],[0,1],[1,0],[0,2],[2,0]]
+Output: 2.00000
+Explanation: The five points are shown in the above figure. The red triangle is the largest.
+
+Example 2:
+
+Input: points = [[1,0],[0,0],[0,1]]
+Output: 0.50000
+
+"""

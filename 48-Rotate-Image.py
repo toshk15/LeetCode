@@ -21,6 +21,23 @@ print(rotateImage(arr))
 
 
 """
+def rotate(matrix):
+    n = len(matrix)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            #print(matrix[i][j])
+            #print(matrix[j][i])
+
+        for i in range(n):
+            matrix[i].reverse()
+    print(matrix)
+
+"""
+
+
+"""
 Example 1:
 
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]

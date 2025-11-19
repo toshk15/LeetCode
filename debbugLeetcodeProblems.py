@@ -1970,7 +1970,7 @@ def largestOddNumber(num):
     return "" if str(maxOdd) =="-inf" else str(maxOdd)
 num ="10133890"
 print(largestOddNumber(num))
-"""
+
 
 def rotate(matrix):
     n = len(matrix)
@@ -1985,4 +1985,105 @@ def rotate(matrix):
             matrix[i].reverse()
     print(matrix)
 
-print(rotate([[1,2],[3,4]]))
+print(rotate([[1,2,3],[4,5,6],[7,8,9]]))
+
+
+def averageWaitingTime(customers):
+    t = 0
+    total_time = 0
+
+    for start_time, end_time in customers:
+        if t>start_time:
+            total_time+= t-start_time
+        else:
+            t = start_time
+        total_time += end_time
+        t+=end_time
+    return total_time//len(customers)
+
+customers = [[1,2],[2,5],[4,3]]
+print(averageWaitingTime(customers))
+
+
+def countSubarrays(nums):
+    c=0
+    for i in range(len(nums)-2):
+        x = (nums[i] + nums[i+2])
+        if x ==nums[i+1]//2:
+            c+=1
+    return c
+nums = [1,2,1,4,1]
+print(countSubarrays(nums))
+
+from collections import defaultdict
+def maxSum(nums) -> int:
+    d=defaultdict(list)
+    
+    for i in nums:
+        m=float("-inf")
+        for s in str(i):
+            m = max(m,int(s))
+        d[m].append(i)
+    for key in d:
+        d[key].sort(reverse=True)
+    maxSum=-1
+    for value in d.values():
+        s=0
+        i=0
+        if len(value)==1:
+            continue
+        else:        
+            while i<2:
+                s+=value[i]
+                i+=1
+        maxSum=max(maxSum, s)
+    print(maxSum)
+
+    
+    
+#nums = [51,71,17,24,42]
+nums = [2536,1613,3366,162]
+print(maxSum(nums))
+
+
+def countDays(days, meetings):
+    meetings.sort()
+    prev_end=0
+
+    for start, end in meetings:
+        start = max(start, prev_end+1)
+        length = end-start+1
+        days-=max(length,0)
+        prev_end=max(prev_end, end)
+    return days
+
+#days = 10
+#meetings = [[5,7],[1,3],[9,10]]
+days=5
+meetings=[[2,4],[1,3]]
+print(countDays(days, meetings))
+"""
+
+def makeGood(s):
+    stack=[]
+    l=0
+    while l < len(s):
+        if not stack or stack[-1]==s[l]:
+            stack.append(s[l])
+            l+=1
+        elif  stack and stack[-1].upper() == s[l]:
+            stack.pop()
+            l+=1
+        elif  stack and stack[-1].lower() == s[l]:
+            stack.pop()
+            l+=1
+        else:
+            stack.append(s[l])
+            l+=1
+    return "".join(stack)
+
+s = "leEeetcode"
+#s = "abBAcC"
+#s = "s"
+#s ="Pp"
+print(makeGood(s))

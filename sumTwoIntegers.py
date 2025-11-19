@@ -1,10 +1,11 @@
 def getSum(a, b):
-    a=bin(a)
-    a=a[2:]
-    b=bin(b)
-    b=b[2:]
-    c = a & b
-    return int(c)
+    x = a ^ b; 
+    y = (a & b) << 1
+    while y != 0:
+        car = (x & y) << 1
+        x = x ^ y
+        y = car
+    return x
  
 a = -1
 b = 1

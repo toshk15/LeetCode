@@ -19,7 +19,6 @@ class Solution:
     
 """
 
-
 Example 1:
 
 Input: s = "leEeetcode"

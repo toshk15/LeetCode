@@ -2062,28 +2062,90 @@ def countDays(days, meetings):
 days=5
 meetings=[[2,4],[1,3]]
 print(countDays(days, meetings))
+
+
+import heapq
+class KthLargest:
+
+    def __init__(self, k,nums):
+        self.min_heap = nums
+        self.k = k
+        heapq.heapify(self.min_heap)
+        while len(self.min_heap)>k:
+            heapq.heappop(self.min_heap)        
+
+    def add(self, val):
+        heapq.heappush(self.min_heap,val)
+        if len(self.min_heap)>self.k:
+            heapq.heappop(self.min_heap)
+        return self.min_heap[0]
+    
+kthLargest =KthLargest(3, [7, 7, 7, 7, 8, 3]);
+kthLargest.add(2)
+kthLargest.add(10)
+kthLargest.add(9)
+kthLargest.add(9)
+
+
+import heapq
+def findKthLargest(nums, k):
+    heapq.heapify(nums)
+    maxi = heapq.nlargest(k, nums)
+    return maxi[-1]
+
+nums = [3,2,1,5,6,4]
+k = 2
+print(findKthLargest(nums,k))
+
+
+from collections import Counter
+from collections import deque
+import heapq
+def leastInterval(tasks, n):
+    count = Counter(tasks)
+    maxHeap = [-cnt for cnt in count.values()]
+    heapq.heapify(maxHeap)
+
+    time = 0
+    q = deque()  # pairs of [-cnt, idleTime]
+    while maxHeap or q:
+        time += 1
+
+        if not maxHeap:
+            time = q[0][1]
+        else:
+            cnt = 1 + heapq.heappop(maxHeap)
+            if cnt:
+                q.append([cnt, time + n])
+        if q and q[0][1] == time:
+            heapq.heappush(maxHeap, q.popleft()[0])
+    return time
+
+tasks = ["A","A","A","B","B","B"]
+n = 2
+print(leastInterval(tasks, n))
+
+
+from collections import defaultdict
+def subarray(nums,k):
+    prefix_sum =0
+    res = 0
+    prefix_cnt=defaultdict(int)
+    prefix_cnt[0]=1
+
+    for n in nums:
+        prefix_sum+=n
+        remain = prefix_sum%k
+
+        res+=prefix_cnt[remain]
+        prefix_cnt[remain]+=1
+
+    return res
+
+nums=[4,5,0,-2,-3,1]
+k = 5
+print(subarray(nums, k))
 """
 
-def makeGood(s):
-    stack=[]
-    l=0
-    while l < len(s):
-        if not stack or stack[-1]==s[l]:
-            stack.append(s[l])
-            l+=1
-        elif  stack and stack[-1].upper() == s[l]:
-            stack.pop()
-            l+=1
-        elif  stack and stack[-1].lower() == s[l]:
-            stack.pop()
-            l+=1
-        else:
-            stack.append(s[l])
-            l+=1
-    return "".join(stack)
-
-s = "leEeetcode"
-#s = "abBAcC"
-#s = "s"
-#s ="Pp"
-print(makeGood(s))
+def maximumProduct(nums):
+    nums.sort()

@@ -20,5 +20,4 @@ Example 2:
 
 Input: points = [[1,1],[2,2],[3,3]]
 Output: false
-
 """

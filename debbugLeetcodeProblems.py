@@ -2145,7 +2145,99 @@ def subarray(nums,k):
 nums=[4,5,0,-2,-3,1]
 k = 5
 print(subarray(nums, k))
-"""
 
-def maximumProduct(nums):
-    nums.sort()
+
+def maxAscendingSum(nums):
+    sumT=0
+    m=0
+
+    for i in range(len(nums)):
+        if i < len(nums)-1 and nums[i]<nums[i+1]:
+            sumT+=nums[i]
+            m=max(m,sumT)
+        else:
+            sumT+=nums[i]
+            m=max(m,sumT)
+            sumT=0
+    return m
+nums = [10,20,30,5,10,50]
+print(maxAscendingSum(nums))
+
+
+def sortArrayByParityII(nums):
+    even=[]
+    odd=[]
+    res=[]
+
+    for i in range(len(nums)):
+        if nums[i]%2==0:
+            even.append(nums[i])
+        elif nums[i]%2==1:
+            odd.append(nums[i])
+    i=0    
+    while i < len(even) or i<len(odd):
+        res.append(even[i])  
+        res.append(odd[i]) 
+        i+=1
+     
+    return res
+
+nums = [4,2,5,7]
+print(sortArrayByParityII(nums))
+
+
+from collections import Counter
+def countPalindromicSubsequence(s):
+    res=set()
+    left=set()
+    right=Counter(s)
+
+    for m in s:
+        right[m]-=1
+        for c in left:
+            if right[c]>0:
+                res.add((m,c))
+        left.add(m)
+        
+    return len(res)
+
+
+def countPalindromicSubsequence(s):
+    if len(s)<=2:
+        return 0
+    
+    res=0
+    chara = set(s)
+    for c in chara:
+        first=s.find(c)
+        last=s.rfind(c)
+
+        if first!=last:
+            res+=len(set(s[first+1:last]))
+    return res
+
+s = "aabca"
+print(countPalindromicSubsequence(s))
+"""
+def decrypt(code, k):
+    N=len(code)
+    res=[0]*N
+    l=0
+    curr_sum=0
+    for r in range(N+abs(k)):
+        curr_sum+=code[r%N]
+
+        if r-l+1>abs(k):
+            curr_sum-=code[l%N]
+            l=(l+1)%N
+
+        if r-l+1==abs(k):
+            if k>0:
+                res[(l-1)%N]=curr_sum
+            elif k<0:
+                res[(r+1)%N]=curr_sum
+    return res
+code = [5,7,1,4]
+k = 3
+print(decrypt(code,k))
+

@@ -2218,7 +2218,7 @@ def countPalindromicSubsequence(s):
 
 s = "aabca"
 print(countPalindromicSubsequence(s))
-"""
+
 def decrypt(code, k):
     N=len(code)
     res=[0]*N
@@ -2241,3 +2241,145 @@ code = [5,7,1,4]
 k = 3
 print(decrypt(code,k))
 
+
+def countConsistentStrings(allowed, words):
+    allowed=set(allowed)   
+    c=0
+    for i in words: 
+        j=0            
+        for x in i:            
+            if x not in allowed:
+                break
+            else:
+                j+=1               
+            if j==len(i):
+                c+=1                
+            
+    return c
+                    
+allowed = "ab"
+words = ["ad","bd","aaab","baa","badab"]
+
+#allowed = "abc"
+#words = ["a","b","c","ab","ac","bc","abc"]
+print(countConsistentStrings(allowed, words))
+
+
+
+def findMaxAverage(nums, k):
+    l=0
+    sumT=0
+    maxAvg=float("-inf")
+    res=float("-inf")
+    for r in range(len(nums)):
+        sumT+=nums[r]
+
+        if r-l+1==k:
+            maxAvg=sumT/k
+            res=max(maxAvg, res)
+            sumT-=nums[l]
+            l+=1    
+
+    return res
+
+nums = [-1]
+k = 1
+#nums = [1,12,-5,-6,50,3]
+#k = 4
+print(findMaxAverage(nums,k))
+
+
+def numSubarraysWithSum(nums, goal):
+    n=len(nums)
+    c = [0]*(n+1)
+    c[0]=1
+    prefixSum=0
+    res=0
+
+    for n in nums:
+        prefixSum+=n
+        if prefixSum >= goal:
+            res+=c[prefixSum-goal]
+        c[prefixSum]+=1
+    return res
+
+ 
+
+nums = [1,0,1,0,1]
+goal = 2
+
+print(numSubarraysWithSum(nums,goal))
+
+
+def numSubarraysWithSum(nums, goal):
+    def help(x):
+        if x<0:
+            return 0
+    
+        res=0
+        l=0
+        currSum=0
+        for r in range(len(nums)):
+            currSum+=nums[r]
+            while currSum > x:
+                currSum-=nums[l]
+                l+=1
+            res+=(r-l+1)
+        return res
+    
+    return help(goal)-help(goal-1)
+
+def numSubarraysWithSum(nums, goal):
+    def help(goal):
+        if goal<0:
+            return 0
+    
+        res=0
+        l=0
+        currSum=0
+        for r in range(len(nums)):
+            currSum+=nums[r]
+            while l <= r and currSum > goal:
+                currSum-=nums[l]
+                l+=1
+            res+=(r-l+1)
+        return res
+    
+    return help(goal)-help(goal-1)
+
+
+nums = [1,0,1,0,1]
+goal = 2
+
+#nums = [0,0,0,0,0]
+#goal = 0
+
+print(numSubarraysWithSum(nums,goal))
+
+"""
+
+def maxVowels(s, k):
+    vowels={"a", "e", "i", "o", "u"}
+    l=0
+    res=0
+    c=0
+
+    for r in range(len(s)):
+        if s[r] in vowels:
+            c+=1  
+           
+        if r-l+1 > k:
+            if s[l] in vowels:
+                c-=1
+       
+            l+=1
+        res = max(res, c)
+    return res
+
+s = "abciiidef"
+k = 3
+
+#s="aeiou"
+#k=2
+
+print(maxVowels(s,k))

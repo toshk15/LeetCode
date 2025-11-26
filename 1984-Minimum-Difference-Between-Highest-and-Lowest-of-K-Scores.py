@@ -8,7 +8,7 @@ def minimumDifference(nums, k):
         l, r = l+1, r+1
     return res
 nums = [9,4,1,7]
-k = 2
+k = 3
 print(minimumDifference(nums,k))
 
 

@@ -2356,7 +2356,7 @@ goal = 2
 
 print(numSubarraysWithSum(nums,goal))
 
-"""
+
 
 def maxVowels(s, k):
     vowels={"a", "e", "i", "o", "u"}
@@ -2383,3 +2383,79 @@ k = 3
 #k=2
 
 print(maxVowels(s,k))
+
+
+def maxPower(s):
+    res=0
+    l=0
+    c=0
+
+    for r in range(len(s)):
+        cost = ord(s[r]) - ord(s[l])
+        if cost==0:
+            c+=1
+        if cost!=0:
+            while l!=r:
+                l+=1
+            c=1
+        res=max(c, res)                
+    return res
+s = "leetcode"
+#s = "abbcccddddeeeeedcba"
+print(maxPower(s))
+
+
+def canThreePartsEqualSum(arr):
+    sumT=sum(arr)
+    res=0
+    result=[]
+    x=sumT/3
+    for i in arr:
+        res+=i
+       
+        if res==x:
+            result.append(1)
+            res=0
+        if len(result)==3:
+            return True
+            
+    return False
+
+arr = [1,1,1,1]
+#arr = [0,2,1,-6,6,-7,9,1,2,0,1]
+print(canThreePartsEqualSum(arr))
+
+
+def takeCharacters(s,k):            
+    l=0
+    n=len(s)
+    res=float("inf")
+    c={"a":0,"b":0,"c":0}
+    for le in s:
+        c[le]+=1            
+    values = min(c.values())
+    if values < k:
+        return -1
+
+    for r in range(n):
+        c[s[r]]-=1
+        while min(c.values())<k:
+            c[s[l]]+=1
+            l+=1
+        diff=n - (r-l+1)
+        res=min(res,diff )            
+    return res
+
+s = "aabaaaacaabc"
+k = 2
+print(takeCharacters(s,k))
+
+"""
+def canBeEqual(target, arr) -> bool:
+    x=sorted(target)
+    y=sorted(arr)
+    return x==y
+
+target = [3,7,9]
+arr = [3,7,11]
+print(canBeEqual(target, arr))

@@ -2425,6 +2425,15 @@ arr = [1,1,1,1]
 #arr = [0,2,1,-6,6,-7,9,1,2,0,1]
 print(canThreePartsEqualSum(arr))
 
+def canBeEqual(target, arr) -> bool:
+    x=sorted(target)
+    y=sorted(arr)
+    return x==y
+
+target = [3,7,9]
+arr = [3,7,11]
+print(canBeEqual(target, arr))
+
 
 def takeCharacters(s,k):            
     l=0
@@ -2450,12 +2459,87 @@ s = "aabaaaacaabc"
 k = 2
 print(takeCharacters(s,k))
 
-"""
-def canBeEqual(target, arr) -> bool:
-    x=sorted(target)
-    y=sorted(arr)
-    return x==y
 
-target = [3,7,9]
-arr = [3,7,11]
-print(canBeEqual(target, arr))
+
+from collections import defaultdict
+def mergeSimilarItems(items1, items2):
+    c=defaultdict(int)
+    res=[]
+    for i,j in items1:
+        c[i]=j
+    for i, j in items2:
+        c[i]+=j
+    c = dict(sorted(c.items(), key=lambda item: item[1]))
+    for i,j in c.items():
+        res.append([i,j])
+
+
+    print(res)
+   
+  
+    
+
+items1 = [[1,3],[2,2]]
+items2 = [[7,1],[2,2],[1,4]]
+print(mergeSimilarItems(items1, items2))
+
+
+
+def sumOddLengthSubarrays(arr):
+    n=len(arr)
+    total=0
+
+    for i in range(n):
+        left=i+1
+        right=n-i
+        oddCount=(left*right+1)//2
+        total+=arr[i]*oddCount
+    return total
+
+arr = [1,4,2,5,3]
+print(sumOddLengthSubarrays(arr))
+
+def createTargetArray(nums, index):
+    target = []
+
+    for num_value, insert_position in zip(nums, index):
+        target.insert(insert_position, num_value)     
+
+    return target
+       
+nums = [4,2,4,3,2]
+index = [0,0,1,3,1]
+            
+print(createTargetArray(nums,index))
+
+
+def sumOddLengthSubarrays(arr):
+    n = len(arr)
+    odd_sum = [0] * n
+    even_sum = [0] * n
+    total_sum = odd_sum[0] = arr[0]
+
+    for i in range(1, n):
+        odd_sum[i] = even_sum[i - 1] + arr[i] * (i // 2 + 1)
+        even_sum[i] = odd_sum[i - 1] + arr[i] * ((i + 1) // 2)
+        total_sum += odd_sum[i]
+    return total_sum
+
+arr = [1,4,2,5,3]
+print(sumOddLengthSubarrays(arr))
+
+
+def nextGreatestLetter(letters, target):
+    for s in letters:
+        if s>target:
+            return s
+    return letters[0]
+letters = ["c","f","j"]
+target = "c"
+print(nextGreatestLetter(letters, target))
+
+"""
+
+arr=[1,2,3]
+print(arr.index(2))
+print(len(arr[:0]))

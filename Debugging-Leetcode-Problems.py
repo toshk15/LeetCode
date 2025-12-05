@@ -2539,7 +2539,18 @@ target = "c"
 print(nextGreatestLetter(letters, target))
 
 """
+def sortSentence(s):
+    ss = s.split()
+    res=[0]*len(ss)
+    print(s)
+    for w in ss:
+        idx = int(w[-1])-1
+        res[idx]=w[0:-1]
+    return " ".join(res)
 
-arr=[1,2,3]
-print(arr.index(2))
-print(len(arr[:0]))
+  
+    
+
+
+s = "is2 sentence4 This1 a3"
+print(sortSentence(s))

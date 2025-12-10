@@ -2538,7 +2538,7 @@ letters = ["c","f","j"]
 target = "c"
 print(nextGreatestLetter(letters, target))
 
-"""
+
 def sortSentence(s):
     ss = s.split()
     res=[0]*len(ss)
@@ -2548,9 +2548,55 @@ def sortSentence(s):
         res[idx]=w[0:-1]
     return " ".join(res)
 
-  
-    
-
-
 s = "is2 sentence4 This1 a3"
 print(sortSentence(s))
+
+
+
+def minimumAbsDifference(arr):  
+    arr.sort()     
+    res=[]
+    m=float("inf")
+    for n in range(len(arr)-1):
+        diff = arr[n+1]-arr[n]
+        if diff<m:
+            m=diff
+    for n in range(len(arr)-1):
+        if arr[n+1]-arr[n] == m:
+            res.append([arr[n],arr[n+1]])
+    return res
+arr = [1,3,6,10,15]
+print(minimumAbsDifference(arr))
+
+
+
+def sumOddLengthSubArrays(arr):
+    n = len(arr)
+    total=0
+
+    for i in range(n):
+        left=i+1
+        right = n-i
+        odd = (left*right+1)//2
+        total+=arr[i]*odd
+    return total
+
+arr = [1,4,2,5,3]
+print(sumOddLengthSubArrays(arr))
+
+"""
+
+def countEven(num):        
+    st=0
+    for n in range(1,num+1):
+        nstr = str(n)
+        s=0
+        for i in nstr:
+            s+=int(i)
+            if s%2==0:
+                st+=1
+    return st
+n=4
+print(countEven(n))
+
+

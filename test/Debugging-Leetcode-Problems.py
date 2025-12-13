@@ -2584,7 +2584,7 @@ def sumOddLengthSubArrays(arr):
 arr = [1,4,2,5,3]
 print(sumOddLengthSubArrays(arr))
 
-"""
+
 
 def countEven(num):        
     st=0
@@ -2600,3 +2600,32 @@ n=4
 print(countEven(n))
 
 
+
+def specialArray(nums):
+    for x in range(1, len(nums) + 1):
+        count = sum(value >= x for value in nums)
+        if count == x:
+            return x
+
+    return -1
+nums = [1,0,0,6,4,9]
+print(specialArray(nums))
+
+"""
+from collections import Counter
+def mostFrequentEven(nums):
+        maxfre=float("-inf")
+        res=[]
+        aux=0
+        for i in nums:
+            if i%2==0:
+                res.append(i)
+        c=Counter(res)
+        for i,j in c.items():
+            if j>maxfre:
+                maxfre=j
+                aux=i
+        return -1 if maxfre==float("-inf") else aux
+
+nums = [0,1,2,0,0,0,2,4,4,1]
+print(mostFrequentEven(nums))

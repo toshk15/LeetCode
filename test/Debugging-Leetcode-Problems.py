@@ -2611,7 +2611,7 @@ def specialArray(nums):
 nums = [1,0,0,6,4,9]
 print(specialArray(nums))
 
-"""
+
 from collections import Counter
 def mostFrequentEven(nums):
         maxfre=float("-inf")
@@ -2629,3 +2629,19 @@ def mostFrequentEven(nums):
 
 nums = [0,1,2,0,0,0,2,4,4,1]
 print(mostFrequentEven(nums))
+"""
+
+def intersection(nums):        
+    f=set(nums[0])
+    if len(nums)==1:
+        inter=nums[0]
+    for n in nums[1:]:
+        inter=set(n)&f
+        f=inter
+    res=list(inter)
+    print(res)
+    r=sorted(res)
+    return r
+nums =[[44,21,48]]
+print(intersection(nums))
+            

@@ -2629,7 +2629,6 @@ def mostFrequentEven(nums):
 
 nums = [0,1,2,0,0,0,2,4,4,1]
 print(mostFrequentEven(nums))
-"""
 
 def intersection(nums):        
     f=set(nums[0])
@@ -2644,4 +2643,28 @@ def intersection(nums):
     return r
 nums =[[44,21,48]]
 print(intersection(nums))
-            
+
+
+
+def longestNiceSubstring(s):
+    n = len(s)
+    res = ''
+    for i in range(n):
+        ss = set()
+        for j in range(i, n):
+            ss.add(s[j])
+              
+            is_nice = True
+            for char in ss:
+                if char.lower() not in ss or char.upper() not in ss:
+                    is_nice = False
+                    break
+               
+            if is_nice and len(s[i:j+1]) > len(res):
+                res = s[i:j+1]
+    return res
+
+s = "YazaAay"
+print(longestNiceSubstring(s))
+
+"""

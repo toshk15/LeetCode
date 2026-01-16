@@ -1,32 +1,26 @@
-def maximumGain(s,x,y):
-    total=0
-    high_priority="ab"
-    low_priority="ba"
+class Solution:
+    def maximumGain(self, s: str, x: int, y: int) -> int:
+        max_prio="ab"
+        low_prio="ba"
 
-    if x<y:
-        x,y =y,x
-        high_priority, low_priority = low_priority, high_priority
-    stack=[]
-    for char in s:
-        if char==high_priority[1] and stack and stack[-1] == high_priority[0]:
-            stack.pop()
-            total+=x
-        else:
-            stack.append(char)
-    stacknew=[]
-    for char in stack:
-        if char==low_priority[1] and stacknew and stacknew[-1]==low_priority[0]:
-            stacknew.pop()
-            total+=y
-        else:
-            stacknew.append(char)
-    return total
+        if x<y:
+            x,y=y,x
+            max_prio, low_prio=low_prio,max_prio
 
-s = "cdbcbbaaabab"
-x = 4
-y = 5
+        stack=[]
+        sum_total=0
+        for i in s:
+            if i==max_prio[1] and stack and stack[-1]==max_prio[0]:
+                stack.pop()
+                sum_total+=x
+            else:
+                stack.append(i)
+        stack_low=[]
+        for i in stack:
+            if i==low_prio[1] and stack_low and stack_low[-1]==low_prio[0]:
+                stack_low.pop()
+                sum_total+=y
+            else:
+                stack_low.append(i)   
+        return sum_total 
 
-#s = "aabbaaxybbaabb"
-#x = 5
-#y = 4
-print(maximumGain(s,x,y))
